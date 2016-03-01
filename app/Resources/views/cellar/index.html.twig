@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cellar list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cellar in cellars %}
+            <tr>
+                <td><a href="{{ path('cellar_show', { 'id': cellar.id }) }}">{{ cellar.id }}</a></td>
+                <td>{{ cellar.name }}</td>
+                <td>{{ cellar.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cellar_edit', { 'id': cellar.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cellar_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
