@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bottle list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Vineyard</th>
+                <th>Winemaking</th>
+                <th>Buyingprice</th>
+                <th>Cellarid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bottle in bottles %}
+            <tr>
+                <td><a href="{{ path('bottle_show', { 'id': bottle.id }) }}">{{ bottle.id }}</a></td>
+                <td>{{ bottle.name }}</td>
+                <td>{{ bottle.description }}</td>
+                <td>{{ bottle.vineyard }}</td>
+                <td>{{ bottle.winemaking }}</td>
+                <td>{{ bottle.buyingPrice }}</td>
+                <td>{{ bottle.cellarId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('bottle_show', { 'id': bottle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('bottle_edit', { 'id': bottle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bottle_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
