@@ -17,6 +17,21 @@
                 <th>Description</th>
                 <td>{{ cellar.description }}</td>
             </tr>
+            <tr>
+                <th>Bottle</th>
+            </tr>
+            <tr>
+                {% for b in bottles %}
+                        <td>{{ b.name }}</td>
+                        <td>{{ b.description }}</td>
+                        <td>{{ b.vineyard }}</td>
+                        <td>{{ b.winemaking }}</td>
+                        <td>{{ b.buyingPrice }}</td>
+            </tr>
+            {% endfor %}
+            </tr>
+                <td></td>
+            </tr>
         </tbody>
     </table>
 

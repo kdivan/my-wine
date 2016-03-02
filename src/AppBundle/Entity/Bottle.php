@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Bottle
@@ -12,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Bottle
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="Cellar", inversedBy="bottles")
+     * @ORM\JoinColumn(name="cellar", referencedColumnName="id")
+     */
+    protected $cellar;
+
     /**
      * @var int
      *
@@ -55,13 +62,6 @@ class Bottle
      * @ORM\Column(name="buying_price", type="string", length=255)
      */
     private $buyingPrice;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cellar_id", type="string", length=255)
-     */
-    private $cellarId;
 
     /**
      * Get id
@@ -194,20 +194,22 @@ class Bottle
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getCellarId()
+    public function getCellar()
     {
-        return $this->cellarId;
+        return $this->cellar;
     }
 
     /**
-     * @param string $cellarId
+     * @param mixed $cellar
      */
-    public function setCellarId($cellarId)
+    public function setCellar(Cellar $cellar)
     {
-        $this->cellarId = $cellarId;
+        $this->cellar = $cellar;
+
     }
+
 
 }
 

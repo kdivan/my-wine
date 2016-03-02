@@ -20,8 +20,6 @@ class BottleType extends AbstractType
             ->add('vineyard')
             ->add('winemaking')
             ->add('buyingPrice')
-            ->add('cellarId')
-
         ;
     }
     

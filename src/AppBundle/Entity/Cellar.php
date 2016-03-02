@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Cellar
@@ -12,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Cellar
 {
+    /**
+     * @ORM\OneToMany(targetEntity="Bottle", mappedBy="cellar")
+     */
+    protected $bottles;
+
+    public function __construct()
+    {
+        $this->bottles = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -84,5 +95,22 @@ class Cellar
     {
         $this->description = $description;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBottles()
+    {
+        return $this->bottles;
+    }
+
+    /**
+     * @param mixed $bottles
+     */
+    public function setBottles($bottles)
+    {
+        $this->bottles = $bottles;
+    }
+
 }
 
