@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -24,7 +25,10 @@ class Post
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min=3,
+     * )
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -168,6 +172,11 @@ class Post
     public function setCategory($category)
     {
         $this->category = $category;
+    }
+
+    public function isPostValid()
+    {
+        return ($this->body != $this->title);
     }
 }
 
