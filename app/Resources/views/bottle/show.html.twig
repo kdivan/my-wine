@@ -35,10 +35,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('bottle_index') }}">Back to the list</a>
+            <a href="{{ path('bottle_index', {'cellarId':cellarId}) }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('bottle_edit', { 'id': bottle.id }) }}">Edit</a>
+            <a href="{{ path('bottle_edit', {'cellarId':cellarId, 'id': bottle.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
