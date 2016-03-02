@@ -1,0 +1,267 @@
+/**************
+*    RESET CSS
+***************/
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #272727;
+}
+
+/**************
+*    GLOBAL
+***************/
+body {
+    min-width: 1024px;
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+}
+
+.content {
+    width: 984px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.red {
+    color: #C82829;
+}
+
+/**************
+*    HEADER
+***************/
+header {
+    float: left;
+    vertical-align: baseline;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/**************
+*    NAVIGATION
+***************/
+
+#logo {
+    float: left;
+    display: block;
+    padding-left: 50px;
+    font-size: 40px;
+}
+
+nav {
+    float: right;
+}
+nav ul {
+    width: 100%;
+    float: left;
+}
+nav li {
+    float: left;
+    display: inline-block;
+    margin-right: 15px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #272727;
+}
+
+nav ul li a:hover, .active {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #C82829;
+}
+
+hr {
+    width: 100%;
+    float: left;
+    border: 1px solid #C82829;
+}
+
+/**************
+*    BODY
+***************/
+
+h1 {
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+/* form */
+form {
+    width: 100%;
+}
+label {
+    float: left;
+    margin: 10px;
+}
+.champ {
+    width: 100%;
+}
+input[type='text'], input[type='email'] {
+    float: left;
+    margin: 10px;
+    width: 200px;
+    height: 20px;
+    background-color: #c1c1c1;
+    color: #ffffff;
+    font-size: 14px;
+    border: none;
+}
+
+textarea {
+    float: left;
+    width: 400px;
+    height: 60px;
+}
+
+button[type='submit'] {
+    float: left;
+    width: 220px;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #C82829;
+    font-weight: bold;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* CTA */
+.cta {
+    float: left;
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.cta a {
+    color: #ffffff;
+    background-color: #C82829;
+    font-weight: bold;
+    width: 220px;
+    padding: 15px;
+}
+
+/* cellar */
+.cellar {
+    float: left;
+    width: 28%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.blocEntry {
+    float: left;
+    width: 100%;
+    background-color: #272727;
+    opacity: 0.9;
+}
+.entry {
+    float: left;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.entry .title {
+    width: 100%;
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+.cellar a {
+    color: #ffffff;
+}
+
+/**************
+*    FOOTER
+***************/
+footer {
+    float: left;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    bottom: 0;
+    background-color: #272727;
+    color: #ffffff;
+}
+
+#footerNav {
+    float: left;
+    width: 30%;
+}
+
+#footerNav ul, #footerLocation ul {
+    width: 100%;
+    float: left;
+}
+#footerNav li, #footerLocation li {
+    margin-bottom: 10px;
+}
+#footerNav ul li a, #footerLocation ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer .title {
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+#footerLocation {
+    float: left;
+    margin-left: 5%;
+    width: 30%;
+}
+
+#socialNetworks {
+    float: left;
+    margin-left: 5%;
+    width: 30%;
+}
+
+#socialNetworks img {
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 25px;
+    height: 25px;
+}
