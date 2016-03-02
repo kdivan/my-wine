@@ -1,0 +1,21 @@
+<div id="menu" class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+    </ul>
+
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="{{ path('homepage') }}">Guide</a></li>
+    </ul>
+
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="{{ path('contact') }}">Contact</a></li>
+    </ul>
+    {#<h4>Dernières annonces</h4>
+    {{ render(controller("OCPlatformBundle:Advert:menu", {'limit': 3})) }}
+    #}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+    {% endif %}
+</div>

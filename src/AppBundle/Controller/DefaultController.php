@@ -3,11 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Post;
+use AppBundle\Model\Contact;
+use AppBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 
 class DefaultController extends Controller
 {
@@ -35,6 +36,7 @@ class DefaultController extends Controller
             'title' => 'test',
         ]);
 
+        dump($this->getUser());
         /*$post = new Post();
         $post->setTitle("Titre du post");
         $post->setBody("TEstsestset");
@@ -87,10 +89,22 @@ class DefaultController extends Controller
 
     /**
      * @Route("/contact", name="contact")
+     * @Template(":default:contact.html.twig")
      */
     public function contactAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/contact.html.twig');
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->get('mailer')->send($request->get('message'));
+
+            $this->addFlash('notice', 'Your request has been successfully sent.');
+            //return $this->redirectToRoute('game_home');
+        }
+
+        return array('form' => $form->createView());
     }
 }

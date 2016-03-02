@@ -1,0 +1,30 @@
+{% block main %}
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            {# User part #}
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{ app.user.username }}</strong>
+                                </span>
+                            </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="#">{{ 'profile'|trans }}</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ logout_path() }}">{{ 'logout'|trans }}</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    {% for word in app.user.username|capitalize|split(' ') %}
+                        {{- word|first -}}
+                    {% endfor %}
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
