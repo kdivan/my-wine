@@ -23,6 +23,7 @@ class Cellar
         $this->bottles = new ArrayCollection();
     }
 
+
     /**
      * @var int
      *

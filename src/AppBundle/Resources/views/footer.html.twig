@@ -1,11 +1,49 @@
-<div>
-my Wine
+<div id="footerNav">
+
+    <ul>
+        <li class="title">myWine</li>
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li><a href="{{ path('cellar_index') }}">Mes Caves</a></li>
+        {% else %}
+            <li><a href="{{ path('homepage') }}">Accueil</a></li>
+        {% endif %}
+
+        <li><a href="{{ path('homepage') }}">Guide</a></li>
+
+        <li><a href="{{ path('contact') }}">Contact</a></li>
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+        {% else %}
+            <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+        {% endif %}
+
+    </ul>
 </div>
 
-<div>
-Adresse
+<div id="footerLocation">
+    <ul>
+        <li class="title">Contact</li>
+        <li>242 rue Faubourg Saint-Antoine</li>
+        <li>75012 Paris</li>
+        <li>01 12 10 10 10</li>
+        <li>contact@mywine.fr</li>
+    </ul>
 </div>
 
-<div>
-Réseaux sociaux
+<div id="socialNetworks">
+    <ul>
+        <li class="title">Suivez-nous !</li>
+        <li>
+            <a href="#" target="_blank">
+                <img src="{{ asset('img/facebook.png') }}" />
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <img src="{{ asset('img/twitter.png') }}" />
+            </a>
+        </li>
+    </ul>
 </div>

@@ -1,8 +1,34 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h1>Cellar list</h1>
+    <h1>My <span class="red">Cellars</span></h1>
 
+    <div class="cta">
+        <a href="{{ path('cellar_new') }}">+ Create a new entry</a>
+    </div>
+
+    {% for cellar in cellars %}
+        <div class="cellar">
+            <div class="blocEntry">
+                <p class="entry">
+                    <span class="title">
+                        <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">
+                            {{ cellar.name }}
+                        </a>
+                    </span>
+                </p>
+                <p class="entry">{{ cellar.description }}</p>
+                <p class="entry">
+                    <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">show</a>
+                    /
+                    <a href="{{ path('cellar_edit', { 'id': cellar.id }) }}">edit</a>
+                </p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+    <!--
     <table>
         <thead>
             <tr>
@@ -21,21 +47,14 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">show</a>
+                            <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">show</a> / <a href="{{ path('cellar_edit', { 'id': cellar.id }) }}">edit</a>
                         </li>
-                        <li>
-                            <a href="{{ path('cellar_edit', { 'id': cellar.id }) }}">edit</a>
-                        </li>
+
                     </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table>-->
 
-    <ul>
-        <li>
-            <a href="{{ path('cellar_new') }}">Create a new entry</a>
-        </li>
-    </ul>
 {% endblock %}

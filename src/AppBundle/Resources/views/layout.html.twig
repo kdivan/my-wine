@@ -10,27 +10,32 @@
 
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+        <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}" type="text/css" />
     {% endblock %}
+
 </head>
 
 <body>
 <div class="container">
-    <div id="header">
-    </div>
 
-    <div class="row">
-        {{ include('AppBundle::menu.html.twig') }}
-        <div id="content" class="col-md-9">
-            {% block body %}
-            {% endblock %}
+    <header>
+        <div class="content">
+            {{ include('AppBundle::menu.html.twig') }}
         </div>
-    </div>
-
+    </header>
     <hr>
 
+    <div class="content">
+        {% block body %}
+        {% endblock %}
+    </div>
+
     <footer>
+        <div class="content">
         {{ include('AppBundle::footer.html.twig') }}
+        </div>
     </footer>
 </div>
 
