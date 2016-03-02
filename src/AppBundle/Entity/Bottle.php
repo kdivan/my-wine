@@ -3,22 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Bottle
+ * Bottle.
  *
  * @ORM\Table(name="bottle")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BottleRepository")
  */
 class Bottle
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="Cellar", inversedBy="bottles")
-     * @ORM\JoinColumn(name="cellar", referencedColumnName="id")
-     */
-    protected $cellar;
-
     /**
      * @var int
      *
@@ -59,12 +52,40 @@ class Bottle
     /**
      * @var string
      *
-     * @ORM\Column(name="buying_price", type="string", length=255)
+     * @ORM\Column(name="buying_price", type="string")
      */
     private $buyingPrice;
 
     /**
-     * Get id
+     * @var string
+     *
+     * @ORM\Column(name="currency", type="string")
+     */
+    private $currency;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="vintage", type="integer", length=255)
+     */
+    private $vintage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="capacity", type="string", length=255)
+     */
+    private $capacity;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Cellar", inversedBy="bottles")
+     * @ORM\JoinColumn(name="cellar", referencedColumnName="id")
+     */
+    protected $cellar;
+
+
+    /**
+     * Get id.
      *
      * @return int
      */
@@ -74,7 +95,7 @@ class Bottle
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -207,9 +228,5 @@ class Bottle
     public function setCellar(Cellar $cellar)
     {
         $this->cellar = $cellar;
-
     }
-
-
 }
-

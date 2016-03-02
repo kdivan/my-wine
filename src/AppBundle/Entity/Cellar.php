@@ -14,16 +14,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Cellar
 {
     /**
-     * @ORM\OneToMany(targetEntity="Bottle", mappedBy="cellar")
-     */
-    protected $bottles;
-
-    public function __construct()
-    {
-        $this->bottles = new ArrayCollection();
-    }
-
-    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -45,6 +35,23 @@ class Cellar
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="max_bottles", type="integer")
+     */
+    private $maxBottles;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Bottle", mappedBy="cellar")
+     */
+    protected $bottles;
+
+    public function __construct()
+    {
+        $this->bottles = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -112,5 +119,19 @@ class Cellar
         $this->bottles = $bottles;
     }
 
-}
+    /**
+     * @return int
+     */
+    public function getMaxBottles()
+    {
+        return $this->maxBottles;
+    }
 
+    /**
+     * @param int $maxBottles
+     */
+    public function setMaxBottles($maxBottles)
+    {
+        $this->maxBottles = $maxBottles;
+    }
+}

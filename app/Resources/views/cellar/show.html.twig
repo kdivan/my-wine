@@ -1,4 +1,4 @@
-{% extends 'AppBundle::layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <h1>Cellar</h1>
@@ -18,24 +18,12 @@
                 <td>{{ cellar.description }}</td>
             </tr>
             <tr>
-                <th>Bottle</th>
-            </tr>
-            <tr>
-                {% for b in bottles %}
-                        <td>{{ b.name }}</td>
-                        <td>{{ b.description }}</td>
-                        <td>{{ b.vineyard }}</td>
-                        <td>{{ b.winemaking }}</td>
-                        <td>{{ b.buyingPrice }}</td>
-            </tr>
-            {% endfor %}
-            </tr>
-                <td></td>
+                <th>Maxbottles</th>
+                <td>{{ cellar.maxBottles }}</td>
             </tr>
         </tbody>
     </table>
 
-    <div><a href="{{ path('bottle_new', {'cellarId': cellar.id}) }}">{{ 'bottle.add'|trans }}</a></div>
     <ul>
         <li>
             <a href="{{ path('cellar_index') }}">Back to the list</a>

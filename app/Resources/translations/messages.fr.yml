@@ -37,3 +37,12 @@ profile: __profile
 logout: __logout
 no_account: Pas de compte ?
 register: Je m'inscris
+back_to_list: Retour à la liste
+edit: Modifier
+label: Libellé
+description: Description
+bottle_type: Type de bouteille
+
+bottle_type.creation: Création d'un type de bouteille
+bottle.vintage: Millésimé
+bottle.capacity: Contenance

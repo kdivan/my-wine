@@ -3,14 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Bottle Type.
+ * Currency.
  *
- * @ORM\Table(name="bottle_type")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\BottleTypeRepository")
+ * @ORM\Table(name="currency")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CurrencyRepository")
  */
-class BottleType
+class Currency
 {
     /**
      * @var int
@@ -24,16 +25,16 @@ class BottleType
     /**
      * @var string
      *
-     * @ORM\Column(name="label", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $label;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="code", type="string", length=5)
      */
-    private $description;
+    private $code;
 
     /**
      * @return int
@@ -54,33 +55,32 @@ class BottleType
     /**
      * @return string
      */
-    public function getLabel()
+    public function getName()
     {
-        return $this->label;
+        return $this->name;
     }
 
     /**
-     * @param string $label
+     * @param string $name
      */
-    public function setLabel($label)
+    public function setName($name)
     {
-        $this->label = $label;
+        $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getDescription()
+    public function getCode()
     {
-        return $this->description;
+        return $this->code;
     }
 
     /**
-     * @param string $description
+     * @param string $code
      */
-    public function setDescription($description)
+    public function setCode($code)
     {
-        $this->description = $description;
+        $this->code = $code;
     }
 }
-

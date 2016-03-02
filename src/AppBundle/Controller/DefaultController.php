@@ -53,10 +53,10 @@ class DefaultController extends Controller
         $em->remove($post);
         $em->flush();*/
 
-        return ([
+        return [
             'url' => $url,
             'posts' => $this->getDoctrine()->getRepository('AppBundle:Post')->findAllOrderByCreatedAt(),
-        ]);
+        ];
         // replace this example code with whatever you need
         return $this->render('default/blog.html.twig', [
             'url' => $url,
@@ -79,11 +79,11 @@ class DefaultController extends Controller
     public function postAction(Request $request, $year, $month, $day, $title)
     {
         // replace this example code with whatever you need
-        return $this->render('default/post.html.twig',[
-            "year" => $year,
-            "month" => $month,
-            "day" => $day,
-            "title" => $title,
+        return $this->render('default/post.html.twig', [
+            'year' => $year,
+            'month' => $month,
+            'day' => $day,
+            'title' => $title,
         ]);
     }
 

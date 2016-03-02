@@ -179,4 +179,3 @@ class Post
         return ($this->body != $this->title);
     }
 }
-

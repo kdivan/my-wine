@@ -69,12 +69,9 @@ class CellarController extends Controller
     {
         $deleteForm = $this->createDeleteForm($cellar);
 
-       // $allBottle = $this->findAllBottlesByCellar($cellar->getId());
-
         return $this->render('cellar/show.html.twig', array(
             'cellar' => $cellar,
             'delete_form' => $deleteForm->createView(),
-            'bottles' => $this->getDoctrine()->getRepository('AppBundle:Cellar')->findByCellar($cellar->getId()),
         ));
     }
 

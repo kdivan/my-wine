@@ -13,7 +13,6 @@ class CellarRepository extends \Doctrine\ORM\EntityRepository
 
     public function findByCellar($cellarId)
     {
-
         $em = $this->getEntityManager();
         $query = $em->createQuery(
             'SELECT b
@@ -22,6 +21,5 @@ class CellarRepository extends \Doctrine\ORM\EntityRepository
         )->setParameter('cellarId', $cellarId);
 
         return $query->getResult();
-
     }
 }

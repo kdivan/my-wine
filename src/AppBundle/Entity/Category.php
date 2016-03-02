@@ -91,4 +91,3 @@ class Category
         $this->posts = $posts;
     }
 }
-

@@ -1,4 +1,4 @@
-{% extends 'AppBundle::layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <h1>Cellar list</h1>
@@ -9,6 +9,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Maxbottles</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
                 <td><a href="{{ path('cellar_show', { 'id': cellar.id }) }}">{{ cellar.id }}</a></td>
                 <td>{{ cellar.name }}</td>
                 <td>{{ cellar.description }}</td>
+                <td>{{ cellar.maxBottles }}</td>
                 <td>
                     <ul>
                         <li>
