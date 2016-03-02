@@ -1,0 +1,41 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <h1>BottleType list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bottleType in bottleTypes %}
+            <tr>
+                <td><a href="{{ path('bottletype_show', { 'id': bottleType.id }) }}">{{ bottleType.id }}</a></td>
+                <td>{{ bottleType.label }}</td>
+                <td>{{ bottleType.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('bottletype_show', { 'id': bottleType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('bottletype_edit', { 'id': bottleType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bottletype_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
