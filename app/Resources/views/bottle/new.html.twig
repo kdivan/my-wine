@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('bottle_index', {'cellarId':cellarId}) }}">Back to the list</a>
+            <a href="{{ path('cellar_show', {'id':cellar.id}) }}">{{ 'bottle.back_to_cellar'|trans }}</a>
         </li>
     </ul>
 {% endblock %}

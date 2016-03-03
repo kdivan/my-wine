@@ -13,7 +13,7 @@ use AppBundle\Form\BottleType;
 /**
  * Bottle controller.
  *
- * @Route("/cellar/{cellarId}/bottle")
+ * @Route("/cellar/{cellar}/bottle")
  */
 class BottleController extends Controller
 {
@@ -23,18 +23,19 @@ class BottleController extends Controller
      * @Route("/", name="bottle_index")
      * @Method("GET")
      */
-    public function indexAction($cellarId)
+    public function indexAction(Cellar $cellar)
     {
+        dump($cellar);
         $em = $this->getDoctrine()->getManager();
         $bottles = $em->getRepository('AppBundle:Bottle')->findBy(
-            ['cellar' => $cellarId],
+            ['cellar' => $cellar],
             ['id' => 'ASC']
         );
 
         dump($bottles);
         return $this->render('bottle/index.html.twig', array(
             'bottles' => $bottles,
-            'cellarId' => $cellarId,
+            'cellar' => $cellar,
         ));
     }
 
@@ -44,11 +45,12 @@ class BottleController extends Controller
      * @Route("/new", name="bottle_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request, $cellarId)
+    public function newAction(Request $request, Cellar $cellar)
     {
+        dump($cellar);
         $bottle = new Bottle();
         $em = $this->getDoctrine()->getManager();
-        $cellar = $em->getRepository('AppBundle:Cellar')->find($cellarId);
+        $cellar = $em->getRepository('AppBundle:Cellar')->find($cellar);
         $bottle->setCellar($cellar);
         dump($em->getRepository('AppBundle:BottleType')->findAll());
         $form = $this->createForm('AppBundle\Form\BottleType', $bottle,
@@ -59,13 +61,13 @@ class BottleController extends Controller
             $em->persist($bottle);
             $em->flush();
 
-            return $this->redirectToRoute('bottle_show', array('cellarId' => $cellarId, 'id' => $bottle->getId()));
+            return $this->redirectToRoute('bottle_show', array('cellar' => $cellar->getId(), 'id' => $bottle->getId()));
         }
 
         return $this->render('bottle/new.html.twig', array(
             'bottle' => $bottle,
             'form' => $form->createView(),
-            'cellarId' => $cellarId,
+            'cellar' => $cellar,
         ));
     }
 
@@ -75,14 +77,14 @@ class BottleController extends Controller
      * @Route("/{id}", name="bottle_show")
      * @Method("GET")
      */
-    public function showAction(Bottle $bottle, $cellarId)
+    public function showAction(Bottle $bottle, Cellar $cellar)
     {
-        $deleteForm = $this->createDeleteForm($bottle, $cellarId);
+        $deleteForm = $this->createDeleteForm($bottle, $cellar);
 
         return $this->render('bottle/show.html.twig', array(
             'bottle' => $bottle,
             'delete_form' => $deleteForm->createView(),
-            'cellarId' => $cellarId,
+            'cellar' => $cellar,
         ));
     }
 
@@ -92,9 +94,9 @@ class BottleController extends Controller
      * @Route("/{id}/edit", name="bottle_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Bottle $bottle, $cellarId)
+    public function editAction(Request $request, Bottle $bottle, Cellar $cellar)
     {
-        $deleteForm = $this->createDeleteForm($bottle, $cellarId);
+        $deleteForm = $this->createDeleteForm($bottle, $cellar);
         $editForm = $this->createForm('AppBundle\Form\BottleType', $bottle);
         $editForm->handleRequest($request);
 
@@ -103,14 +105,14 @@ class BottleController extends Controller
             $em->persist($bottle);
             $em->flush();
 
-            return $this->redirectToRoute('bottle_edit', array('cellarId' => $cellarId,  'id' => $bottle->getId()));
+            return $this->redirectToRoute('bottle_edit', array('cellar' => $cellar->getId(),  'id' => $bottle->getId()));
         }
 
         return $this->render('bottle/edit.html.twig', array(
             'bottle' => $bottle,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'cellarId' => $cellarId,
+            'cellar' => $cellar,
         ));
     }
 
@@ -120,9 +122,9 @@ class BottleController extends Controller
      * @Route("/{id}", name="bottle_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Bottle $bottle, $cellarId)
+    public function deleteAction(Request $request, Bottle $bottle, Cellar $cellar)
     {
-        $form = $this->createDeleteForm($bottle, $cellarId);
+        $form = $this->createDeleteForm($bottle, $cellar);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -131,7 +133,7 @@ class BottleController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('bottle_index', [$cellarId]);
+        return $this->redirectToRoute('bottle_index', [$cellar]);
     }
 
     /**
@@ -141,10 +143,10 @@ class BottleController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Bottle $bottle, $cellarId)
+    private function createDeleteForm(Bottle $bottle, Cellar $cellar)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('bottle_delete', array('cellarId' => $cellarId, 'id' => $bottle->getId())))
+            ->setAction($this->generateUrl('bottle_delete', array('cellar' => $cellar->getId(), 'id' => $bottle->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
