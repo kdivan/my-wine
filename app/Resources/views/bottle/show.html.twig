@@ -60,6 +60,11 @@
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+            </li>
+
+        <a href="{{ path('bottle_index') }}" class="back">> Back to the <span class="red">list of bottles</span></a>
+    </div>
+
+</div>
 {% endblock %}

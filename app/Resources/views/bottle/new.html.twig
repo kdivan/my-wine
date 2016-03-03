@@ -1,6 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
+<div class="content">
     <h1>{{ 'bottle'|trans }}: <span class="red">{{ 'add'|trans }}</span></h1>
 
     {{ form_start(form) }}
@@ -13,4 +14,6 @@
             <a href="{{ path('cellar_show', {'id':cellar.id}) }}">{{ 'bottle.back_to_cellar'|trans }}</a>
         </li>
     </ul>
+
+</div>
 {% endblock %}
