@@ -5,28 +5,40 @@
     <h1>{{ 'cellar'|trans }} : <span class="red">{{ cellar.name }}</span></h1>
 
     <div class="cta">
-        <a href="{{ path('bottle_new', {'cellar':cellar.id}) }}">+ {{ 'bottle.add'|trans }}</a>
+        <a href="{{ path('bottle_new', {'cellar':cellar.id}) }}">
+            + {{ 'bottle.add'|trans }}
+        </a>
     </div>
-    <br><br><br><br><br>
+</div>
+
+<div class="content">
+
     <div class="bottleList">
         {% for bottle in bottles %}
-        <a href="{{ path('bottle_show', {'cellar':cellar.id,'id': bottle.id }) }}" class="myBottle">
-            <img src="{{ asset('img/emplacement_pris.png') }}" />
-            <div class="infoBottle">
-               <p><span class="red">{{ bottle.name }}</span> - {{ bottle.vintage }}</p>
-            </div>
-        </a>
+            <a href="{{ path('bottle_show', {'cellar':cellar.id,'id': bottle.id }) }}" class="myBottle">
+                {% if bottle.bottleType.id == 1 %}
+                    <img src="{{ asset('img/vin-rouge.png') }}" />
+                {% else %}
+                    <img src="{{ asset('img/vin-blanc.png') }}" />
+                {% endif %}
+                <div class="infoBottle">
+                   <p><span class="red">{{ bottle.name }}</span> - {{ bottle.vintage }}</p>
+                </div>
+            </a>
         {% endfor %}
 
         {% for i in bottles|length..cellar.maxBottles -1 %}
         {% if i%10 == 0 and i != 0%}
-        </div>
-        <div class="bottleList">
+
+    </div>
+    <div class="bottleList">
+
         {% endif %}
+
         <img src="{{ asset('img/emplacement_vide.png') }}" />
 
         {% endfor %}
-        </div>
+    </div>
 
     <div class="line">
         <p class="back">

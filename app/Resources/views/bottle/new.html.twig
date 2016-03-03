@@ -15,15 +15,70 @@
     {% endif %}
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+        </div>
+    </div>
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.vineyard) }}
+            {{ form_widget(form.vineyard) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.winemaking) }}
+            {{ form_widget(form.winemaking) }}
+        </div>
+    </div>
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.buyingPrice) }}
+            {{ form_widget(form.buyingPrice) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.vintage) }}
+            {{ form_widget(form.vintage) }}
+        </div>
+    </div>
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.capacity) }}
+            {{ form_widget(form.capacity) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.currency) }}
+            {{ form_widget(form.currency) }}
+        </div>
+    </div>
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.bottleType) }}
+            {{ form_widget(form.bottleType) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.image_file) }}
+            {{ form_widget(form.image_file) }}
+        </div>
+    </div>
+
+    <div class="line">
         <input type="submit" value="Create" />
+    </div>
+
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('cellar_show', {'id':cellar.id}) }}">{{ 'bottle.back_to_cellar'|trans }}</a>
-        </li>
-    </ul>
+    <div class="line">
+        <p class="back">
+            <a href="{{ path('cellar_show', {'id':cellar.id}) }}">{{ 'bottle.back_to_cellar'|trans }} <span class="red">{{ cellar.name }}</span> </a>
+        </p>
+    </div>
+
 
 </div>
 {% endblock %}
