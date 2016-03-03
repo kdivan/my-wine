@@ -97,3 +97,6 @@ vich_uploader:
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
+
+twig:
+    exception_controller: "ExceptionsErrorBundle :NotFound:handleException"
