@@ -61,11 +61,23 @@ body {
 .line {
     float: left;
     width: 100%;
+    display: block;
+}
+
+.champForm {
+    float: left;
+    width: 40%;
 }
 
 .deleteForm {
     float: left;
     padding-left: 10px;
+}
+
+.ctaForm {
+    float: left;
+    width: auto;
+    padding: 10px;
 }
 
 
@@ -319,7 +331,6 @@ button[type='submit'], input[type='submit'] {
     display: block;
     width: 15%;
     height: 200px;
-    border: 1px solid black;
     margin-right: 5%;
 }
 
@@ -332,6 +343,11 @@ button[type='submit'], input[type='submit'] {
 #infoBouteille .line {
     width: 100%;
     float: left;
+}
+
+#infoBouteille .line p {
+    float: left;
+    margin-right: 20px;
 }
 
 #actionBouteille {

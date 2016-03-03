@@ -5,13 +5,37 @@
     <h1>Cellar <span class="red">creation</span></h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+        </div>
+    </div>
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.maxBottles) }}
+            {{ form_widget(form.maxBottles) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.image_file) }}
+            {{ form_widget(form.image_file) }}
+        </div>
+    </div>
+
+    <div class="line">
         <input type="submit" value="Create" />
+    </div>
+
     {{ form_end(form) }}
 
     <div class="line">
         <p class="back">
-            <a href="{{ path('cellar_index') }}">Back to the list</a>
+            <a href="{{ path('cellar_index') }}">Back to the <span class="red">list</span></a>
         </p>
     </div>
 </div>
