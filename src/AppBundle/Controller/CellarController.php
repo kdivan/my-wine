@@ -26,7 +26,9 @@ class CellarController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $cellars = $em->getRepository('AppBundle:Cellar')->findAll();
+        $cellars = $em->getRepository('AppBundle:Cellar')->findBy(
+            ['user' => $this->getUser(),]
+        );
 
         return $this->render('cellar/index.html.twig', array(
             'cellars' => $cellars,
@@ -42,6 +44,7 @@ class CellarController extends Controller
     public function newAction(Request $request)
     {
         $cellar = new Cellar();
+        $cellar->setUser($this->getUser());
         $form = $this->createForm('AppBundle\Form\CellarType', $cellar);
         $form->handleRequest($request);
 
@@ -73,7 +76,6 @@ class CellarController extends Controller
             ['cellar' => $cellar],
             ['id' => 'ASC']
         );
-        dump($bottles);
         return $this->render('cellar/show.html.twig', array(
             'cellar' => $cellar,
             'bottles' => $bottles,

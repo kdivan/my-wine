@@ -8,25 +8,64 @@ use AppBundle\Entity\Cellar;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Post;
+use UserBundle\Entity\User;
 
 class LoadCellarBottleFixtures implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        $user = new User();
+        $user->setUsername('test');
+        $user->setEmail('test@gmail.com');
+        $user->setPlainPassword('test');
+        $user->setEnabled(true);
+        $user->setRoles(array('ROLE_USER'));
+        $manager->persist($user);
+        $manager->flush();
+
+        $user1 = new User();
+        $user1->setUsername('test2');
+        $user1->setEmail('test2@gmail.com');
+        $user1->setPlainPassword('test2');
+        $user1->setEnabled(true);
+        $user1->setRoles(array('ROLE_USER'));
+        $manager->persist($user1);
+        $manager->flush();
+
+        $user2 = new User();
+        $user2->setUsername('admin');
+        $user2->setEmail('admin@gmail.com');
+        $user2->setPlainPassword('admin');
+        $user2->setEnabled(true);
+        $user2->setRoles(array('ROLE_ADMIN'));
+        $manager->persist($user2);
+        $manager->flush();
+
         $cellar = new Cellar();
         $cellar->setName('Cave à vin Test');
         $cellar->setDescription('Ceci est une cave a vin');
         $cellar->setMaxBottles(50);
         $cellar->setImageName('test');
+        $cellar->setUser($user);
         $manager->persist($cellar);
         $manager->flush();
 
         $cellar2 = clone $cellar;
         $cellar2->setName('Cave à vdeux');
-        $cellar->setDescription('Ceci est une cave a vdeux');
-        $cellar->setMaxBottles(100);
-        $cellar->setImageName('test2');
+        $cellar2->setDescription('Ceci est une cave a vdeux');
+        $cellar2->setMaxBottles(100);
+        $cellar2->setImageName('test2');
+        $cellar2->setUser($user1);
         $manager->persist($cellar2);
+        $manager->flush();
+
+        $cellar3 = clone $cellar;
+        $cellar3->setName('Cave à vdeux');
+        $cellar3->setDescription('Ceci est une cave a vdeux');
+        $cellar3->setMaxBottles(100);
+        $cellar3->setImageName('test2');
+        $cellar3->setUser($user2);
+        $manager->persist($cellar3);
         $manager->flush();
 
         $bottleType = new BottleType();
@@ -42,6 +81,20 @@ class LoadCellarBottleFixtures implements FixtureInterface
         $i = 0;
         //First cellar
         while ($i <= 5) {
+            $bottle = new Bottle();
+            $bottle->setName('Bouteille admin '.$i);
+            $bottle->setDescription('Description '.$i);
+            $bottle->setBottleType($bottleType);
+            $bottle->setBuyingPrice(50);
+            $bottle->setCapacity('1L');
+            $bottle->setCellar($cellar3);
+            $bottle->setCurrency('€');
+            $bottle->setVineyard('Test admin '.$i);
+            $bottle->setWinemaking('Test admin '.$i);
+            $bottle->setVintage(2005);
+            $bottle->setImageName('admin.jpg');
+            $manager->persist($bottle);
+
             if ($i % 2 == 0) {
                 $bottle = new Bottle();
                 $bottle->setName('Bouteille '.$i);

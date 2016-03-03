@@ -16,8 +16,8 @@ class Mailer
     public function sendContactMessage($contact)
     {
 
-        $from = 'mail@utilisateur.fr';
-        $to = 'th-ibault@live.fr';
+        $from = 'kandiah.divan@gmail.com';
+        $to = 'kdivan@hotmail.fr';
         $subject = 'Formulaire de contact';
         $body ='Hi!';
         $this->sendMessage($from, $to, $subject, $body);

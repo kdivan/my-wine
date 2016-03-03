@@ -7,3 +7,9 @@ services:
     app.mailer:
         class: AppBundle\Model\Mailer
         arguments: ["@mailer"]
+
+    appbundle.repository.cellar:
+      class: AppBundle\Repository\CellarRepository
+      factory_service: doctrine.orm.default_entity_manager
+      factory_method: getRepository
+      arguments: ['AppBundle:Cellar']
