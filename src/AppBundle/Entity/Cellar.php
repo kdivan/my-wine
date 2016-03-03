@@ -74,6 +74,12 @@ class Cellar
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="cellars")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->bottles = new ArrayCollection();

@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,8 +19,14 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Cellar", mappedBy="user")
+     */
+    protected $cellars;
+
     public function __construct()
     {
         parent::__construct();
+        $this->cellars = new ArrayCollection();
     }
 }
