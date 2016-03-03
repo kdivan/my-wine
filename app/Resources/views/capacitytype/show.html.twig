@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>CapacityType</h1>
+    <h1>{{ 'Capacity Type edit'|trans }}</h1>
 
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'Id'|trans }}</th>
                 <td>{{ capacityType.id }}</td>
             </tr>
             <tr>
-                <th>Label</th>
+                <th>{{ 'Label'|trans }}</th>
                 <td>{{ capacityType.label }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th>{{ 'Description'|trans }}</th>
                 <td>{{ capacityType.description }}</td>
             </tr>
         </tbody>
@@ -22,14 +22,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('capacitytype_index') }}">Back to the list</a>
+            <a href="{{ path('capacitytype_index') }}">{{ 'Back to the list'|trans }}</a>
         </li>
         <li>
-            <a href="{{ path('capacitytype_edit', { 'id': capacityType.id }) }}">Edit</a>
+            <a href="{{ path('capacitytype_edit', { 'id': capacityType.id }) }}">{{ 'Edit'|trans }}</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="{{ 'Delete'|trans }}">
             {{ form_end(delete_form) }}
         </li>
     </ul>

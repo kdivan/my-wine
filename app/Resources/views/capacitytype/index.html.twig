@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>CapacityType list</h1>
+    <h1>{{ 'capacity.type.edit'|trans }}</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Label</th>
-                <th>Description</th>
-                <th>Actions</th>
+                <th>{{ 'id'|trans }}</th>
+                <th>{{ 'label'|trans }}</th>
+                <th>{{ 'description'|trans }}</th>
+                <th>{{ 'actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('capacitytype_show', { 'id': capacityType.id }) }}">show</a>
+                            <a href="{{ path('capacitytype_show', { 'id': capacityType.id }) }}">{{ 'show'|trans }}</a>
                         </li>
                         <li>
-                            <a href="{{ path('capacitytype_edit', { 'id': capacityType.id }) }}">edit</a>
+                            <a href="{{ path('capacitytype_edit', { 'id': capacityType.id }) }}">{{ 'edit'|trans }}</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('capacitytype_new') }}">Create a new entry</a>
+            <a href="{{ path('capacitytype_new') }}">{{ 'create.new.entry'|trans }}</a>
         </li>
     </ul>
 {% endblock %}

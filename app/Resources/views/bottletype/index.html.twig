@@ -1,14 +1,14 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h1>BottleType list</h1>
+    <h1>{{ 'bottle.type.list'|trans }}</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Label</th>
-                <th>Actions</th>
+                <th>{{ 'id'|trans }}</th>
+                <th>{{ 'label'|trans }}</th>
+                <th>{{ 'actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -19,10 +19,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('bottletype_show', { 'id': bottleType.id }) }}">show</a>
+                            <a href="{{ path('bottletype_show', { 'id': bottleType.id }) }}">{{ 'show'|trans }}</a>
                         </li>
                         <li>
-                            <a href="{{ path('bottletype_edit', { 'id': bottleType.id }) }}">edit</a>
+                            <a href="{{ path('bottletype_edit', { 'id': bottleType.id }) }}">{{ 'edit'|trans }}</a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +33,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('bottletype_new') }}">Create a new entry</a>
+            <a href="{{ path('bottletype_new') }}">{{ 'create.new.entry'|trans }}</a>
         </li>
     </ul>
 {% endblock %}
