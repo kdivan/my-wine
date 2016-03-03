@@ -93,18 +93,7 @@ class DefaultController extends Controller
      */
     public function contactAction(Request $request)
     {
-        $contact = new Contact();
-        $form = $this->createForm(ContactType::class, $contact);
 
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $this->get('mailer')->send($request->get('message'));
-
-            $this->addFlash('notice', 'Your request has been successfully sent.');
-            //return $this->redirectToRoute('game_home');
-        }
-
-        return array('form' => $form->createView());
+        $serviceMail = $this->get('mailer');
     }
 }
