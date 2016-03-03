@@ -1,26 +1,24 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h1>Cellar : <span class="red">{{ cellar.name }}</span></h1>
+    <h1>{{ 'cellar'|trans }} : <span class="red">{{ cellar.name }}</span></h1>
+
+    <div class="cta">
+        <a href="{{ path('bottle_new', {'cellarId':cellar.id}) }}">+ {{ 'bottle.add'|trans }}</a>
+    </div>
 
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ cellar.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ cellar.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ cellar.description }}</td>
-            </tr>
-            <tr>
-                <th>Maxbottles</th>
-                <td>{{ cellar.maxBottles }}</td>
-            </tr>
+                {% for bottle in bottles %}
+                    <td><a href="{{ path('bottle_show', {'cellarId':cellar.id,'id': bottle.id }) }}">{{ bottle.id }}</a></td>
+                {% endfor %}
+                {% for i in bottles|length..cellar.maxBottles %}
+                        <td></td>
+                    {% if i%10 == 0 and i != 0%}
+                        </tr><tr>
+                    {% endif %}
+                {% endfor %}
         </tbody>
     </table>
 

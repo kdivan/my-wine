@@ -10,16 +10,4 @@ namespace AppBundle\Repository;
  */
 class CellarRepository extends \Doctrine\ORM\EntityRepository
 {
-
-    public function findByCellar($cellarId)
-    {
-        $em = $this->getEntityManager();
-        $query = $em->createQuery(
-            'SELECT b
-              FROM AppBundle:Bottle b
-              WHERE b.cellar = :cellarId'
-        )->setParameter('cellarId', $cellarId);
-
-        return $query->getResult();
-    }
 }

@@ -77,3 +77,23 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: UserBundle\Entity\User
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        bottle_image:
+            uri_prefix:         /images/bottles
+            upload_destination: %kernel.root_dir%/../web/images/bottles
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+
+        cellar_image:
+            uri_prefix:         /images/cellars
+            upload_destination: %kernel.root_dir%/../web/images/cellars
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true

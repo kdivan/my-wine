@@ -1,7 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h1>Bottle creation</h1>
+    <h1>{{ 'bottle'|trans }}: <span class="red">{{ 'add'|trans }}</span></h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}

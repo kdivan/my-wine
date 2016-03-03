@@ -3,15 +3,14 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Bottle Type.
+ * Capacity Type.
  *
- * @ORM\Table(name="bottle_type")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\BottleTypeRepository")
+ * @ORM\Table(name="capacity_type")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CapacityTypeRepository")
  */
-class BottleType
+class CapacityType
 {
     /**
      * @var int
@@ -29,16 +28,12 @@ class BottleType
      */
     private $label;
 
-
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Bottle", mappedBy="bottleType")
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
      */
-    private $bottles;
-
-    public function __construct()
-    {
-        $this->bottles = new ArrayCollection();
-    }
+    private $description;
 
     /**
      * @return int
@@ -70,6 +65,22 @@ class BottleType
     public function setLabel($label)
     {
         $this->label = $label;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }
 

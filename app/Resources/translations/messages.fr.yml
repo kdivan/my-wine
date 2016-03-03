@@ -1,5 +1,6 @@
 actions: Actions
 address: Adresse
+add: Ajouter
 back_to_list: 'Retour à la liste'
 begin: Début
 begin_period: 'Période début'
@@ -42,7 +43,12 @@ edit: Modifier
 label: Libellé
 description: Description
 bottle_type: Type de bouteille
-
+bottle: Bouteille
 bottle_type.creation: Création d'un type de bouteille
 bottle.vintage: Millésimé
 bottle.capacity: Contenance
+bottle.add: Ajout Bouteille
+my: Mes
+cellars: Caves
+cellar: Cave
+id: Identifiant

@@ -68,9 +68,15 @@ class CellarController extends Controller
     public function showAction(Cellar $cellar)
     {
         $deleteForm = $this->createDeleteForm($cellar);
-
+        $em = $this->getDoctrine()->getManager();
+        $bottles = $em->getRepository('AppBundle:Bottle')->findBy(
+            ['cellar' => $cellar],
+            ['id' => 'ASC']
+        );
+        dump($bottles);
         return $this->render('cellar/show.html.twig', array(
             'cellar' => $cellar,
+            'bottles' => $bottles,
             'delete_form' => $deleteForm->createView(),
         ));
     }

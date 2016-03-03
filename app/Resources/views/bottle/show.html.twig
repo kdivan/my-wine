@@ -27,9 +27,24 @@
             </tr>
             <tr>
                 <th>Buyingprice</th>
-                <td>{{ bottle.buyingPrice }}</td>
+                <td>{{ bottle.buyingPrice }} {{ bottle.currency }}</td>
             </tr>
-
+            <tr>
+                <th>Vintage</th>
+                <td>{{ bottle.vintage }}</td>
+            </tr>
+            <tr>
+                <th>Capcity</th>
+                <td>{{ bottle.capacity }}</td>
+            </tr>
+            <tr>
+                <th>Bottle Type</th>
+                <td>{{ bottle.bottleType.label }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img width="auto" height="200" src="{{ asset('images/bottles/' ~ bottle.imageName) }}"></td>
+            </tr>
         </tbody>
     </table>
 

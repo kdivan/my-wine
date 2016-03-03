@@ -26,9 +26,12 @@ class BottleController extends Controller
     public function indexAction($cellarId)
     {
         $em = $this->getDoctrine()->getManager();
+        $bottles = $em->getRepository('AppBundle:Bottle')->findBy(
+            ['cellar' => $cellarId],
+            ['id' => 'ASC']
+        );
 
-        $bottles = $em->getRepository('AppBundle:Bottle')->findAll();
-
+        dump($bottles);
         return $this->render('bottle/index.html.twig', array(
             'bottles' => $bottles,
             'cellarId' => $cellarId,
@@ -47,14 +50,16 @@ class BottleController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cellar = $em->getRepository('AppBundle:Cellar')->find($cellarId);
         $bottle->setCellar($cellar);
-        $form = $this->createForm('AppBundle\Form\BottleType', $bottle);
+        dump($em->getRepository('AppBundle:BottleType')->findAll());
+        $form = $this->createForm('AppBundle\Form\BottleType', $bottle,
+            array('bottleTypes' => $em->getRepository('AppBundle:BottleType')->findAll()));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($bottle);
             $em->flush();
 
-            return $this->redirectToRoute('bottle_show', array('id' => $bottle->getId()));
+            return $this->redirectToRoute('bottle_show', array('cellarId' => $cellarId, 'id' => $bottle->getId()));
         }
 
         return $this->render('bottle/new.html.twig', array(
@@ -72,7 +77,7 @@ class BottleController extends Controller
      */
     public function showAction(Bottle $bottle, $cellarId)
     {
-        $deleteForm = $this->createDeleteForm($bottle);
+        $deleteForm = $this->createDeleteForm($bottle, $cellarId);
 
         return $this->render('bottle/show.html.twig', array(
             'bottle' => $bottle,
@@ -98,7 +103,7 @@ class BottleController extends Controller
             $em->persist($bottle);
             $em->flush();
 
-            return $this->redirectToRoute('bottle_edit', array('id' => $bottle->getId()));
+            return $this->redirectToRoute('bottle_edit', array('cellarId' => $cellarId,  'id' => $bottle->getId()));
         }
 
         return $this->render('bottle/edit.html.twig', array(

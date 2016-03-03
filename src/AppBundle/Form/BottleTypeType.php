@@ -15,8 +15,7 @@ class BottleTypeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('label')
-            ->add('description')
+            ->add('label', 'text')
         ;
     }
     
