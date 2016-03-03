@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="content">
-        <h1>My Bottle : <span class="red">{{ bottle.name }}</span></h1>
+        <h1>{{ 'bottle'|trans }} <span class="red">{{ bottle.name }}</span></h1>
 
         {% if bottle.imageName is not null and file_exists(web_path~asset('images/bottles/' ~ bottle.imageName)) %}
         <div id="visuBouteille">
@@ -47,6 +47,5 @@
                 <a href="{{ path('cellar_show', {'id':cellar.id}) }}">{{ 'bottle.back_to_cellar'|trans }} <span class="red">{{ cellar.name }}</span> </a>
             </p>
         </div>
-
     </div>
 {% endblock %}
