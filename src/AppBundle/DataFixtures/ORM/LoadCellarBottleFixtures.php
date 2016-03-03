@@ -17,6 +17,7 @@ class LoadCellarBottleFixtures implements FixtureInterface
         $cellar->setName('Cave à vin Test');
         $cellar->setDescription('Ceci est une cave a vin');
         $cellar->setMaxBottles(50);
+        $cellar->setImageName('test');
         $manager->persist($cellar);
         $manager->flush();
 
@@ -24,6 +25,7 @@ class LoadCellarBottleFixtures implements FixtureInterface
         $cellar2->setName('Cave à vdeux');
         $cellar->setDescription('Ceci est une cave a vdeux');
         $cellar->setMaxBottles(100);
+        $cellar->setImageName('test2');
         $manager->persist($cellar2);
         $manager->flush();
 
@@ -52,6 +54,7 @@ class LoadCellarBottleFixtures implements FixtureInterface
                 $bottle->setVineyard('Test Vineyard '.$i);
                 $bottle->setWinemaking('Test winemaking '.$i);
                 $bottle->setVintage(2005);
+                $bottle->setImageName('test.jpg');
                 $manager->persist($bottle);
             } else {
                 $bottle2 = new Bottle();
@@ -65,6 +68,7 @@ class LoadCellarBottleFixtures implements FixtureInterface
                 $bottle2->setVineyard('Test Vineyard '.$i);
                 $bottle2->setWinemaking('Test winemaking '.$i);
                 $bottle2->setVintage(2005);
+                $bottle2->setImageName('test2.jpg');
                 $manager->persist($bottle2);
             }
             $i++;

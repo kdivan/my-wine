@@ -2,7 +2,6 @@
 
 {% block body %}
     <h1>Bottle</h1>
-
     <table>
         <tbody>
             <tr>
@@ -41,19 +40,21 @@
                 <th>Bottle Type</th>
                 <td>{{ bottle.bottleType.label }}</td>
             </tr>
-            <tr>
-                <th>Image</th>
-                <td><img width="auto" height="200" src="{{ asset('images/bottles/' ~ bottle.imageName) }}"></td>
-            </tr>
+            {% if bottle.imageName is not null %}
+                <tr>
+                    <th>Image</th>
+                    <td><img width="auto" height="200" src="{{ asset('images/bottles/' ~ bottle.imageName) }}"></td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('bottle_index', {'cellarId':cellarId}) }}">Back to the list</a>
+            <a href="{{ path('cellar_show', {'id':cellar.id}) }}">{{ 'bottle.back_to_cellar'|trans }}</a>
         </li>
         <li>
-            <a href="{{ path('bottle_edit', {'cellarId':cellarId, 'id': bottle.id }) }}">Edit</a>
+            <a href="{{ path('bottle_edit', {'cellar':cellar.id, 'id': bottle.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

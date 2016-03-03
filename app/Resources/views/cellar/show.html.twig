@@ -5,13 +5,13 @@
     <h1>{{ 'cellar'|trans }} : <span class="red">{{ cellar.name }}</span></h1>
 
     <div class="cta">
-        <a href="{{ path('bottle_new', {'cellarId':cellar.id}) }}">+ {{ 'bottle.add'|trans }}</a>
+        <a href="{{ path('bottle_new', {'cellar':cellar.id}) }}">+ {{ 'bottle.add'|trans }}</a>
     </div>
     <table>
         <tbody>
             <tr>
                 {% for bottle in bottles %}
-                    <td><a href="{{ path('bottle_show', {'cellarId':cellar.id,'id': bottle.id }) }}">{{ bottle.id }}</a></td>
+                    <td><a href="{{ path('bottle_show', {'cellar':cellar.id,'id': bottle.id }) }}">{{ bottle.id }}</a></td>
                 {% endfor %}
                 {% for i in bottles|length..cellar.maxBottles %}
                         <td></td>

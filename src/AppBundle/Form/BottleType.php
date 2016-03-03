@@ -27,7 +27,9 @@ class BottleType extends AbstractType
             ->add('vintage', TextType::class)
             ->add('capacity')
             ->add('currency')
-            ->add('image_file', FileType::class)
+            ->add('image_file', FileType::class, array(
+                'required' => false,
+            ))
             ->add('bottleType', EntityType::class, array(
                 'class' => 'AppBundle\Entity\BottleType',
                 'choice_label' => 'label',

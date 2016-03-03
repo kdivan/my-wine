@@ -48,6 +48,7 @@ bottle_type.creation: Création d'un type de bouteille
 bottle.vintage: Millésimé
 bottle.capacity: Contenance
 bottle.add: Ajout Bouteille
+bottle.back_to_cellar: Retour à ma cave
 my: Mes
 cellars: Caves
 cellar: Cave
