@@ -19,7 +19,7 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'base_dir' => realpath($this->getParameter('kernel.root_dir') . '/..'),
         ]);
     }
 
@@ -30,13 +30,14 @@ class DefaultController extends Controller
     public function blogAction(Request $request)
     {
         $url = $this->generateUrl('post', [
-            'year' => '2015',
+            'year'  => '2015',
             'month' => '03',
-            'day' => '21',
+            'day'   => '21',
             'title' => 'test',
         ]);
 
         dump($this->getUser());
+
         /*$post = new Post();
         $post->setTitle("Titre du post");
         $post->setBody("TEstsestset");
@@ -54,12 +55,13 @@ class DefaultController extends Controller
         $em->flush();*/
 
         return [
-            'url' => $url,
+            'url'   => $url,
             'posts' => $this->getDoctrine()->getRepository('AppBundle:Post')->findAllOrderByCreatedAt(),
         ];
+
         // replace this example code with whatever you need
         return $this->render('default/blog.html.twig', [
-            'url' => $url,
+            'url'   => $url,
             'posts' => $this->getDoctrine()->getRepository('AppBundle:Post')->findAllOrderByCreatedAt(),
         ]);
     }
@@ -80,9 +82,9 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('default/post.html.twig', [
-            'year' => $year,
+            'year'  => $year,
             'month' => $month,
-            'day' => $day,
+            'day'   => $day,
             'title' => $title,
         ]);
     }
@@ -93,7 +95,17 @@ class DefaultController extends Controller
      */
     public function contactAction(Request $request)
     {
+        $contact = new Contact();
+        $form    = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
 
-        $serviceMail = $this->get('mailer');
+            if ($form->isValid()) {
+                $this->get('app.mailer')->sendContactMessage($form->getData());
+
+                return $this->redirect('/contact');
+            }
+
+        return array('form' => $form->createView());
     }
+
 }
