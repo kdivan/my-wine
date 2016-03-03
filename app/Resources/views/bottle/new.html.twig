@@ -62,13 +62,19 @@
             {{ form_widget(form.bottleType) }}
         </div>
         <div class="champForm">
-            {{ form_label(form.image_file) }}
-            {{ form_widget(form.image_file) }}
+            {{ form_label(form.unit) }}
+            {{ form_widget(form.unit) }}
         </div>
     </div>
 
     <div class="line">
-        <input type="submit" value="Create" />
+        <div class="champForm">
+            {{ form_label(form.image_file) }}
+            {{ form_widget(form.image_file) }}
+        </div>
+        <div class="champForm">
+            <input type="submit" value="Create" />
+        </div>
     </div>
 
     {{ form_end(form) }}

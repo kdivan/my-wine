@@ -163,6 +163,7 @@ h1 {
     float: left;
     padding: 4%;
     margin: auto;
+    text-align: center;
 }
 
 #presentation p {
@@ -243,7 +244,7 @@ label {
 .champ {
     width: 100%;
 }
-input[type='text'], input[type='email'] {
+input[type='text'], input[type='email'], input[type='number'], select {
     float: left;
     margin: 10px;
     width: 200px;

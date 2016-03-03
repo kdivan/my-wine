@@ -3,24 +3,39 @@
 {% block body %}
 <div class="content">
     <h1>{{ 'us'|trans }} <span class="red">{{ 'contact'|trans }}</span></h1>
+
+
     {# {{ form(form) }} #}
 
-    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_start(form) }}
 
-    {# champ email #}
-    {{ form_label(form.sender) }}
-    {{ form_errors(form.sender) }}
-    {{ form_widget(form.sender) }}
 
-    {# champ sujet #}
-    {{ form_label(form.subject) }}
-    {{ form_errors(form.subject) }}
-    {{ form_widget(form.subject) }}
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.sender) }}
+            {{ form_widget(form.sender) }}
+        </div>
+        <div class="champForm">
+            {{ form_label(form.subject) }}
+            {{ form_widget(form.subject) }}
+        </div>
+    </div>
 
-    {# champ message #}
-    {{ form_label(form.message) }}
-    {{ form_errors(form.message) }}
-    {{ form_widget(form.message) }}
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.message) }}
+            {{ form_widget(form.message) }}
+        </div>
+    </div>
+
+    <div class="line">
+        <div class="champForm">
+            <div class="cta">
+                {{ form_label(form.send) }}
+                {{ form_widget(form.send) }}
+            </div>
+        </div>
+    </div>
 
     {{ form_end(form) }}
 </div>
