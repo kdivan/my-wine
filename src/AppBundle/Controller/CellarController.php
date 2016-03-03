@@ -27,7 +27,7 @@ class CellarController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $cellars = $em->getRepository('AppBundle:Cellar')->findBy(
-            ['user' => $this->getUser(),]
+            ['user' => $this->getUser(), ]
         );
 
         return $this->render('cellar/index.html.twig', array(

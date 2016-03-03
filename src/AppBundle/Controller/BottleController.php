@@ -32,7 +32,7 @@ class BottleController extends Controller
             ['cellar' => $cellar],
             ['id' => 'ASC']
         );
-
+        dump($this->get('appbundle.repository.bottle'));
         dump($bottles);
         return $this->render('bottle/index.html.twig', array(
             'bottles' => $bottles,
@@ -53,7 +53,6 @@ class BottleController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cellar = $em->getRepository('AppBundle:Cellar')->find($cellar);
         $bottle->setCellar($cellar);
-        dump($em->getRepository('AppBundle:BottleType')->findAll());
         $form = $this->createForm('AppBundle\Form\BottleType', $bottle,
             array('bottleTypes' => $em->getRepository('AppBundle:BottleType')->findAll()));
         $form->handleRequest($request);
@@ -98,9 +97,11 @@ class BottleController extends Controller
     public function editAction(Request $request, Bottle $bottle, Cellar $cellar)
     {
         $deleteForm = $this->createDeleteForm($bottle, $cellar);
-        $bottleImagePath = $this->getParameter('bottle_image_path').$bottle->getImageName();
-        if (file_exists($bottleImagePath)) {
-            $bottle->setImageFile(new File($bottleImagePath));
+        if (strlen($bottle->getImageName()) > 0 ){
+            $bottleImagePath = $this->getParameter('bottle_image_path').$bottle->getImageName();
+            if (file_exists($bottleImagePath)) {
+                $bottle->setImageFile(new File($bottleImagePath));
+            }
         }
         $editForm = $this->createForm('AppBundle\Form\BottleType', $bottle);
         $editForm->handleRequest($request);

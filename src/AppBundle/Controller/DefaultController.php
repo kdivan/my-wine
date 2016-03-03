@@ -98,14 +98,12 @@ class DefaultController extends Controller
         $contact = new Contact();
         $form    = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
+        if ($form->isValid()) {
+            $this->get('app.mailer')->sendContactMessage($form->getData());
 
-            if ($form->isValid()) {
-                $this->get('app.mailer')->sendContactMessage($form->getData());
-
-                return $this->redirect('/contact');
-            }
+            return $this->redirect('/contact');
+        }
 
         return array('form' => $form->createView());
     }
-
 }

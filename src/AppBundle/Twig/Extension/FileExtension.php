@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Twig\Extension;
+
 use Doctrine\Bundle\DoctrineBundle\Twig;
 
 class FileExtension extends \Twig_Extension

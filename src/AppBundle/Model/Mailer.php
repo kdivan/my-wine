@@ -15,7 +15,6 @@ class Mailer
 
     public function sendContactMessage($contact)
     {
-
         $from = 'kandiah.divan@gmail.com';
         $to = 'kdivan@hotmail.fr';
         $subject = 'Formulaire de contact';
@@ -23,7 +22,8 @@ class Mailer
         $this->sendMessage($from, $to, $subject, $body);
     }
 
-    public function sendMessage($from, $to, $subject, $body){
+    public function sendMessage($from, $to, $subject, $body)
+    {
         $mail = \Swift_Message::newInstance();
 
         $mail

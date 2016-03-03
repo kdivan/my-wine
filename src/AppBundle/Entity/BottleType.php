@@ -72,4 +72,3 @@ class BottleType
         $this->label = $label;
     }
 }
-

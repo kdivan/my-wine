@@ -83,4 +83,3 @@ class CapacityType
         $this->description = $description;
     }
 }
-
