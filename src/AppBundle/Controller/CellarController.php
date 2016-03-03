@@ -91,6 +91,10 @@ class CellarController extends Controller
      */
     public function editAction(Request $request, Cellar $cellar)
     {
+        $cellarImagePath = $this->getParameter('cellar_image_path').$cellar->getImageName();
+        if (file_exists($cellarImagePath)) {
+            $cellar->setImageFile(new File($cellarImagePath));
+        }
         $deleteForm = $this->createDeleteForm($cellar);
         $editForm = $this->createForm('AppBundle\Form\CellarType', $cellar);
         $editForm->handleRequest($request);
@@ -100,7 +104,7 @@ class CellarController extends Controller
             $em->persist($cellar);
             $em->flush();
 
-            return $this->redirectToRoute('cellar_edit', array('id' => $cellar->getId()));
+            return $this->redirectToRoute('cellar_index');
         }
 
         return $this->render('cellar/edit.html.twig', array(

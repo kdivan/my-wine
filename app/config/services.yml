@@ -3,6 +3,7 @@
 parameters:
 #    parameter_name: value
     app.file.twig.extension.class: AppBundle\Twig\Extension\FileExtension
+    appbundle.cellar.repository.class:
 
 services:
     app.mailer:

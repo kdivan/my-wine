@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Cellar;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -97,6 +98,10 @@ class BottleController extends Controller
     public function editAction(Request $request, Bottle $bottle, Cellar $cellar)
     {
         $deleteForm = $this->createDeleteForm($bottle, $cellar);
+        $bottleImagePath = $this->getParameter('bottle_image_path').$bottle->getImageName();
+        if (file_exists($bottleImagePath)) {
+            $bottle->setImageFile(new File($bottleImagePath));
+        }
         $editForm = $this->createForm('AppBundle\Form\BottleType', $bottle);
         $editForm->handleRequest($request);
 
@@ -105,7 +110,7 @@ class BottleController extends Controller
             $em->persist($bottle);
             $em->flush();
 
-            return $this->redirectToRoute('bottle_edit', array('cellar' => $cellar->getId(),  'id' => $bottle->getId()));
+            return $this->redirectToRoute('bottle_show', array('cellar' => $cellar->getId(),  'id' => $bottle->getId()));
         }
 
         return $this->render('bottle/edit.html.twig', array(

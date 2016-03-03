@@ -8,6 +8,8 @@ imports:
 parameters:
     locale: fr
     web_path: %kernel.root_dir%/../web
+    bottle_image_path: %kernel.root_dir%/../web/images/bottles/
+    cellar_image_path: %kernel.root_dir%/../web/images/cellar/
 
 framework:
     #esi:             ~

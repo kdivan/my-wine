@@ -19,7 +19,9 @@ class CellarType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('maxBottles')
-            ->add('image_file', FileType::class)
+            ->add('image_file', FileType::class, array(
+                'required' => false,
+            ))
         ;
     }
     
