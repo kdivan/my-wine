@@ -49,7 +49,9 @@ bottle.vintage: Millésimé
 bottle.capacity: Contenance
 bottle.add: Ajout Bouteille
 bottle.back_to_cellar: Retour à ma cave
+bottle.back_to_bottle: Retour sur ma bouteille
 my: Mes
 cellars: Caves
 cellar: Cave
 id: Identifiant
+cellar.back_to_cellars: Retour à mes caves

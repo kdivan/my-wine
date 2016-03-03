@@ -7,7 +7,7 @@
     <div class="cta">
         <a href="{{ path('bottle_new', {'cellar':cellar.id}) }}">+ {{ 'bottle.add'|trans }}</a>
     </div>
-
+    <br><br><br><br><br>
     <div class="bottleList">
         {% for bottle in bottles %}
         <a href="{{ path('bottle_show', {'cellar':cellar.id,'id': bottle.id }) }}" class="myBottle">
@@ -30,7 +30,7 @@
 
     <div class="line">
         <p class="back">
-            <a href="{{ path('cellar_index') }}">Back to the list</a>
+            <a href="{{ path('cellar_index') }}">{{ 'cellar.back_to_cellars'|trans }}</a>
         </p>
     </div>
 

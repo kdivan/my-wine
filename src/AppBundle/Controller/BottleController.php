@@ -133,7 +133,8 @@ class BottleController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('bottle_index', [$cellar]);
+        return $this->redirectToRoute('cellar_show', [
+            'id' => $cellar->getId()]);
     }
 
     /**
