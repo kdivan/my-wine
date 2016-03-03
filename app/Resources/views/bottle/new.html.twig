@@ -4,6 +4,16 @@
 <div class="content">
     <h1>{{ 'bottle'|trans }}: <span class="red">{{ 'add'|trans }}</span></h1>
 
+    {% if error is defined and error is not null %}
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{ macro.alert('error', error) }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />

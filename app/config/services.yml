@@ -4,15 +4,11 @@ parameters:
     app.file.twig.extension.class: AppBundle\Twig\Extension\FileExtension
     cellar.entity.class: AppBundle\Entity\Cellar
     bottle.entity.class: AppBundle\Entity\Bottle
-    cellar.repository.class: AppBundle\Repository\CellarRepository
-    bottle.repository.class: AppBundle\Repository\BottleRepository
-    cellar.manager.class: AppBundle\Services\CellarManager
 
 services:
     app.mailer:
         class: AppBundle\Model\Mailer
         arguments: ["@mailer"]
-
 
     appbundle.repository.cellar:
         class: Doctrine\ORM\EntityRepository
@@ -25,6 +21,10 @@ services:
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - %bottle.entity.class%
+
+    appbundle.cellar_manager:
+        class: AppBundle\Services\CellarManager
+        arguments: ['@appbundle.repository.bottle', '@appbundle.repository.cellar']
 
     app.file.twig.extension:
         class: %app.file.twig.extension.class%

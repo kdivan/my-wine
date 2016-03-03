@@ -26,14 +26,11 @@ class BottleController extends Controller
      */
     public function indexAction(Cellar $cellar)
     {
-        dump($cellar);
         $em = $this->getDoctrine()->getManager();
         $bottles = $em->getRepository('AppBundle:Bottle')->findBy(
             ['cellar' => $cellar],
             ['id' => 'ASC']
         );
-        dump($this->get('appbundle.repository.bottle'));
-        dump($bottles);
         return $this->render('bottle/index.html.twig', array(
             'bottles' => $bottles,
             'cellar' => $cellar,
@@ -48,19 +45,27 @@ class BottleController extends Controller
      */
     public function newAction(Request $request, Cellar $cellar)
     {
-        dump($cellar);
+        $error = null;
         $bottle = new Bottle();
         $em = $this->getDoctrine()->getManager();
         $cellar = $em->getRepository('AppBundle:Cellar')->find($cellar);
         $bottle->setCellar($cellar);
-        $form = $this->createForm('AppBundle\Form\BottleType', $bottle,
-            array('bottleTypes' => $em->getRepository('AppBundle:BottleType')->findAll()));
+        $form = $this->createForm('AppBundle\Form\BottleType', $bottle);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($bottle);
-            $em->flush();
-
+            $unit = $form->get('unit')->getData();
+            dump($unit);
+            if ($this->get('appbundle.cellar_manager')
+                    ->hasEnoughStorage($cellar, $unit)) {
+                dump('hasenoughstorage');
+                for($i = 0; $i < $unit; $i++) {
+                    $em->persist($bottle);
+                    $em->flush();
+                }
+            } else {
+                $error = 'cellar.not_enough_space';
+            }
             return $this->redirectToRoute('bottle_show', array('cellar' => $cellar->getId(), 'id' => $bottle->getId()));
         }
 
@@ -68,6 +73,7 @@ class BottleController extends Controller
             'bottle' => $bottle,
             'form' => $form->createView(),
             'cellar' => $cellar,
+            'error' => $error,
         ));
     }
 

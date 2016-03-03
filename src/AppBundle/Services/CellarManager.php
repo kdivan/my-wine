@@ -2,9 +2,9 @@
 
 namespace AppBundle\Services;
 
-use AppBundle\Repository\BottleRepository;
-use AppBundle\Repository\CellarRepository;
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\Cellar;
+use AppBundle\Entity\Bottle;
 
 class CellarManager
 {
@@ -18,5 +18,10 @@ class CellarManager
         $this->cellarRepository = $cellarRepository;
     }
 
+    public function hasEnoughStorage(Cellar $cellar, $bottleToStore)
+    {
+        return (count($this->bottleRepository->findBy(['cellar' => $cellar]))
+            + $bottleToStore < $cellar->getMaxBottles() );
+    }
 
 }

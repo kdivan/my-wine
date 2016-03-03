@@ -1,0 +1,6 @@
+{% macro alert(alertType, message) %}
+    <div class="alert alert-{{ alertType == 'error' ? 'danger' : alertType }} alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        {{ message|trans }}
+    </div>
+{% endmacro %}
