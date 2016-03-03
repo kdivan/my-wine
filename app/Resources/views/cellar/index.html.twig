@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="content">
-    <h1>My <span class="red">Cellars</span></h1>
+    <h1>{{ 'my'|trans }} <span class="red">{{ 'cellars'|trans }}</span></h1>
 
     <div class="cta">
         <a href="{{ path('cellar_new') }}">+ Create a new entry</a>

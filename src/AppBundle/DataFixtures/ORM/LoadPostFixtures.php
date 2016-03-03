@@ -16,7 +16,7 @@ class LoadPostFixtures implements FixtureInterface
         $manager->persist($category);
         $manager->flush();
 
-        while($i <= 5){
+        while ($i <= 5) {
             $post = new Post();
             $post->setTitle("Test ".$i);
             $post->setBody("TESTESTST");

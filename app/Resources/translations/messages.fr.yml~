@@ -1,0 +1,35 @@
+actions: Actions
+address: Adresse
+back_to_list: 'Retour à la liste'
+begin: Début
+begin_period: 'Période début'
+cancel: Annuler
+create: Créer
+creation_date: 'Date de création'
+customer: Client
+date: Date
+day: Jour
+descriptive: Descriptif
+email: Email
+end: Fin
+number: N°
+phone: Téléphone
+postal_code: 'Code postal'
+show: Afficher
+sign: Enseigne
+from: Expéditeur
+message: Message
+description: Description
+menu.dev: Dev
+menu.rigths: Droits
+menu.rigths_group.users: Utilisateurs
+menu.rigths_group.groups: Groupes
+menu.rigths_group.roles: Rôles
+contact.sender: 'De:'
+contact.message: 'Votre message:'
+contact.subject: 'Sujet:'
+contact.submit: 'Envoyer mon message'
+validation.contact.sender: Vide
+validation.contact.subject: 'Sujet vide'
+validation.contact.message: 'message vide'
+reset_password: Mot de passe oublié

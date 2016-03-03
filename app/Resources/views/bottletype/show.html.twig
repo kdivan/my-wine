@@ -1,0 +1,36 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <h1>{{ 'bottle_type'|trans }}</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bottleType.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ bottleType.label }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ bottleType.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bottletype_index') }}">{{ 'back_to_list'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ path('bottletype_edit', { 'id': bottleType.id }) }}">{{ 'edit'|trans }}</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

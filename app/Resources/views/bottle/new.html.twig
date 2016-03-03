@@ -2,8 +2,7 @@
 
 {% block body %}
 <div class="content">
-
-    <h1>Bottle creation</h1>
+    <h1>{{ 'bottle'|trans }}: <span class="red">{{ 'add'|trans }}</span></h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -12,7 +11,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('bottle_index') }}">Back to the list</a>
+            <a href="{{ path('bottle_index', {'cellarId':cellarId}) }}">Back to the list</a>
         </li>
     </ul>
 

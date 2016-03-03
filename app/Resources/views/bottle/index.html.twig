@@ -15,26 +15,27 @@
                 <th>Vineyard</th>
                 <th>Winemaking</th>
                 <th>Buyingprice</th>
-                <th>Cellar</th>
+                <th>Bottle type</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for bottle in bottles %}
             <tr>
-                <td><a href="{{ path('bottle_show', { 'id': bottle.id }) }}">{{ bottle.id }}</a></td>
+                <td><a href="{{ path('bottle_show', {'cellarId':cellarId,'id': bottle.id }) }}">{{ bottle.id }}</a></td>
                 <td>{{ bottle.name }}</td>
                 <td>{{ bottle.description }}</td>
                 <td>{{ bottle.vineyard }}</td>
                 <td>{{ bottle.winemaking }}</td>
                 <td>{{ bottle.buyingPrice }}</td>
+                <td>{{ bottle.bottleType.label }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('bottle_show', { 'id': bottle.id }) }}">show</a>
+                            <a href="{{ path('bottle_show', {'cellarId':cellarId, 'id': bottle.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('bottle_edit', { 'id': bottle.id }) }}">edit</a>
+                            <a href="{{ path('bottle_edit', {'cellarId':cellarId, 'id': bottle.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -45,7 +46,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('bottle_new') }}">Create a new entry</a>
+            <a href="{{ path('bottle_new', {'cellarId':cellarId}) }}">Create a new entry</a>
         </li>
     </ul>
 

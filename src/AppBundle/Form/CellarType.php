@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class CellarType extends AbstractType
 {
@@ -17,6 +18,8 @@ class CellarType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
+            ->add('maxBottles')
+            ->add('image_file', FileType::class)
         ;
     }
     

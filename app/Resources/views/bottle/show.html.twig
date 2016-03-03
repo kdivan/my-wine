@@ -1,33 +1,66 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-<div class="content">
+    <h1>Bottle</h1>
 
-    <h1>Ma <span class="red">Bouteille</span></h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bottle.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ bottle.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ bottle.description }}</td>
+            </tr>
+            <tr>
+                <th>Vineyard</th>
+                <td>{{ bottle.vineyard }}</td>
+            </tr>
+            <tr>
+                <th>Winemaking</th>
+                <td>{{ bottle.winemaking }}</td>
+            </tr>
+            <tr>
+                <th>Buyingprice</th>
+                <td>{{ bottle.buyingPrice }} {{ bottle.currency }}</td>
+            </tr>
+            <tr>
+                <th>Vintage</th>
+                <td>{{ bottle.vintage }}</td>
+            </tr>
+            <tr>
+                <th>Capcity</th>
+                <td>{{ bottle.capacity }}</td>
+            </tr>
+            <tr>
+                <th>Bottle Type</th>
+                <td>{{ bottle.bottleType.label }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img width="auto" height="200" src="{{ asset('images/bottles/' ~ bottle.imageName) }}"></td>
+            </tr>
+        </tbody>
+    </table>
 
-
-    <div id="visuBouteille">
-
-    </div>
-
-    <div class="infoBouteille">
-        <p class="line">{{ bottle.name }}</p>
-        <p class="line">{{ bottle.vineyard }}</p>
-        <p class="line">{{ bottle.winemaking }}</p>
-        <p class="line">{{ bottle.description }}</p>
-        <p class="line">{{ bottle.buyingPrice }}</p>
-    </div>
-
-    <div id="actionBouteille">
-        <div class="cta">
-            <a href="{{ path('bottle_edit', { 'id': bottle.id }) }}">> Edit the bottle</a>
-        </div>
-
-        <div class="actionButton">
+    <ul>
+        <li>
+            <a href="{{ path('bottle_index', {'cellarId':cellarId}) }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('bottle_edit', {'cellarId':cellarId, 'id': bottle.id }) }}">Edit</a>
+        </li>
+        <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </div>
+            </li>
 
         <a href="{{ path('bottle_index') }}" class="back">> Back to the <span class="red">list of bottles</span></a>
     </div>
