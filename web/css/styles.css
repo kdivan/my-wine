@@ -369,7 +369,32 @@ button[type='submit'], input[type='submit'] {
 }
 
 
+/* Bottle list from cellar */
+.bottleList {
+    position: relative;
+}
+.bottleList img {
+    width: 25px;
+    height: 25px;
+}
 
+.infoBottle {
+    float: left;
+    display: none;
+    width: auto;
+    height: auto;
+    background-color: #FFFFFF;
+    border: 1px solid #C82829;
+    z-index: 9999;
+
+    position: absolute;
+}
+.infoBottle p {
+    padding: 10px;
+}
+.myBottle:hover .infoBottle {
+    display: block;
+}
 
 
 /**************
