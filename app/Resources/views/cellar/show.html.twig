@@ -1,6 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
+<div class="content">
     <h1>Cellar : <span class="red">{{ cellar.name }}</span></h1>
 
     <table>
@@ -48,4 +49,5 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+</div>
 {% endblock %}

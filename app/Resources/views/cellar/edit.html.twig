@@ -1,21 +1,32 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h1>Cellar edit</h1>
+<div class="content">
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <h1>Cellar <span class="red">edit</span></h1>
 
-    <ul>
-        <li>
+    <div class="line">
+        {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            <div class="line">
+                <input type="submit" value="Edit" />
+
+                <div class="deleteForm">
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </div>
+            </div>
+
+        {{ form_end(edit_form) }}
+
+    </div>
+
+    <div class="line">
+        <p class="back">
             <a href="{{ path('cellar_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </p>
+    </div>
+
+</div>
 {% endblock %}

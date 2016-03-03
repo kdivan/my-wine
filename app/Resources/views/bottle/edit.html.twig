@@ -1,6 +1,9 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
+
+<div class="content">
+
     <h1>Bottle edit</h1>
 
     {{ form_start(edit_form) }}
@@ -18,4 +21,6 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+</div>
 {% endblock %}

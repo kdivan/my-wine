@@ -1,6 +1,63 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
+
 {% block body %}
 
+<div class="content">
+    <div id="presentation">
+        <div id="gestion">
+            <img src="{{ asset('img/gerer.png') }}" />
+           <p><span class="red">Gérez</span> votre cave</p>
+        </div>
+        <div id="degustation">
+            <img src="{{ asset('img/deguster.png') }}" />
+            <p><span class="red">Dégustez</span> votre vin</p>
+        </div>
+        <div id="comparaison">
+            <img src="{{ asset('img/stats.png') }}" />
+            <p><span class="red">Comparez</span> vos biens</p>
+        </div>
+    </div>
+</div>
+
+    <div id="arguments">
+        <div class="content">
+            <div class="description">
+                <div class="line">
+                    <h2>Pourquoi choisir my<span class="red">Wine</span> ?</h2>
+                </div>
+                <div class="line">
+                   <p>Déjà, parce que c'est génial. Tu vas pouvoir gérer ta cave à vin en toute simplicité. Divan, le Symfony2 Master, nous a guidé dans la réalisation de fonctionnalités plus cool les unes que les autres.</p>
+                </div>
+                <div class="cta">
+                    <a href="" target="_blank">Je m'inscris</a>
+                </div>
+            </div>
+            <aside>
+                <img src="{{ asset('img/arguments.jpg') }}" alt="Bouteilles"/>
+            </aside>
+        </div>
+    </div>
+
+    <div id="chiffres">
+        <div class="content">
+            <aside>
+                <img src="{{ asset('img/chiffres.jpg') }}" alt="Stats"/>
+            </aside>
+            <div class="description">
+                <div class="line">
+                    <h2>my<span class="red">Wine</span> en chiffres...</h2>
+                </div>
+                <div class="line">
+                    <p class="stats"><span class="red">84</span> utilisateurs</p>
+                    <p class="stats"><span class="red">122</span> caves</p>
+                    <p class="stats"><span class="red">870</span> bouteilles</p>
+                </div>
+                <div class="cta">
+                    <a href="" target="_blank">Je m'inscris</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

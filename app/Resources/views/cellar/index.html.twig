@@ -1,6 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
+<div class="content">
     <h1>My <span class="red">Cellars</span></h1>
 
     <div class="cta">
@@ -27,34 +28,5 @@
         </div>
 
     {% endfor %}
-
-    <!--
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for cellar in cellars %}
-            <tr>
-                <td><a href="{{ path('cellar_show', { 'id': cellar.id }) }}">{{ cellar.id }}</a></td>
-                <td>{{ cellar.name }}</td>
-                <td>{{ cellar.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">show</a> / <a href="{{ path('cellar_edit', { 'id': cellar.id }) }}">edit</a>
-                        </li>
-
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>-->
-
+</div>
 {% endblock %}
