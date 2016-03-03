@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>CapacityType list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for capacityType in capacityTypes %}
+            <tr>
+                <td><a href="{{ path('capacitytype_show', { 'id': capacityType.id }) }}">{{ capacityType.id }}</a></td>
+                <td>{{ capacityType.label }}</td>
+                <td>{{ capacityType.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('capacitytype_show', { 'id': capacityType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('capacitytype_edit', { 'id': capacityType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('capacitytype_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
