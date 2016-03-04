@@ -5,7 +5,7 @@
     <h1>{{ 'my'|trans }} <span class="red">{{ 'cellars'|trans }}</span></h1>
 
     <div class="cta">
-        <a href="{{ path('cellar_new') }}">+ Create a new entry</a>
+        <a href="{{ path('cellar_new') }}">+ {{ 'cellar.new_entry'|trans }}</a>
     </div>
 
     {% for cellar in cellars %}
@@ -20,9 +20,9 @@
                 </p>
                 <p class="entry">{{ cellar.description }}</p>
                 <p class="entry">
-                    <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">show</a>
+                    <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">{{ 'show'|trans }}</a>
                     /
-                    <a href="{{ path('cellar_edit', { 'id': cellar.id }) }}">edit</a>
+                    <a href="{{ path('cellar_edit', { 'id': cellar.id }) }}">{{ 'edit'|trans }}</a>
                 </p>
             </div>
         </div>

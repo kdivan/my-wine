@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="content">
-    <h1>Cellar <span class="red">creation</span></h1>
+    <h1>{{ 'cellar'|trans }} <span class="red">{{ 'cellar.new_entry'|trans }}</span></h1>
 
     {{ form_start(form) }}
 
@@ -28,14 +28,14 @@
     </div>
 
     <div class="line">
-        <input type="submit" value="Create" />
+        <input type="submit" value="{{ 'create'|trans }}" />
     </div>
 
     {{ form_end(form) }}
 
     <div class="line">
         <p class="back">
-            <a href="{{ path('cellar_index') }}">Back to the <span class="red">list</span></a>
+            <a href="{{ path('cellar_index') }}">{{ 'cellar.back_to_cellar'|trans }}</a>
         </p>
     </div>
 </div>
