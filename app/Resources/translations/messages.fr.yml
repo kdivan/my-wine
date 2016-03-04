@@ -1,11 +1,38 @@
-actions: Actions
 address: Adresse
 add: Ajouter
+account: compte
+actions: Actions
 back_to_list: 'Retour à la liste'
 begin: Début
 begin_period: 'Période début'
+bottle: Bouteille
+bottle.add_entry: Ajouter une bouteille
+bottle.back_to_cellar: Retour à la cave
+bottle_type: Type de bouteille
+Bottle type: Type de bouteille
+bottle_type.management: Gestion des types de bouteille
+bottle_type.create_entry: Créer un nouveau type de bouteille
+bottle_type.list: Liste des types de bouteille
+bottle_type.creation: Création d'un type de bouteille
+Buying price: Prix d'achat
+buying price: Prix d'achat
 cancel: Annuler
+Capacity: Capacité
+cellars: Caves à vin
+cellar: Cave à vin
+cellar.new_entry: Créer une cave à vin
+cellar.edit_entry: Modifier ma cave à vin
+cellar.back_to_cellar: Retour à mes caves
+cellar.not_enough_space: Il n'y pas assez d'espace dans la cave !
+cellar.available_space: place(s) disponible dans la cave
+contact: contacter
+contact.message: 'Votre message:'
+contact.sender: 'Email :'
+contact.subject: 'Sujet:'
+contact.submit: Envoyer
 create: Créer
+Create: Créer
+Create an: Créer un
 create.new.entry: + Créer une nouvelle cave
 creation_date: Date de création
 customer: Client
@@ -43,32 +70,21 @@ postal_code: Code postal
 profile: __profile
 register: Je m'inscris
 reset.password: Mot de passe oublié
+security.login.remember_me: Se souvenir de moi
 show: Afficher
 sign: Enseigne
+Unit: Quantité
+unit: Quantité
+update: Mettre à jour
+us: Nous
 validation.contact.sender: Vide
 validation.contact.subject: Sujet vide
-validation.contact.message: message vide
+validation.contact.message: Message vide
 vineyard: Vignoble
 Vineyard: Vignoble
 vintage: milésime
 Vintage: Milésime
 winemaking: Vignification
 Winemaking: Vignification
-cellar.not_enough_space: Il n'y pas assez d'espace dans la cave !
-cellar.available_space: place(s) disponible dans la cave
-bottle_type: Type de bouteille
-bottle_type.management: Gestion des types de bouteille
-bottle_type.create_entry: Créer un nouveau type de bouteille
-bottle_type.list: Liste des types de bouteille
-bottle_type.creation: Création d'un type de bouteille
-Create an: Créer un
-account: compte
-cellars: Caves à vin
-cellar: Cave à vin
-cellar.new_entry: Créer une cave à vin
-cellar.edit_entry: Modifier ma cave à vin
-cellar.back_to_cellar: Retour à mes caves
-update: Mettre à jour
-bottle: Bouteille
-bottle.add_entry: Ajouter une bouteille
-unit: Quantité
+
+

@@ -23,18 +23,18 @@
             <div class="line">
                 <div class="champForm">
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'messages') }}</label>
                 </div>
                 <div class="champForm">
-                    <a href="{{ path("fos_user_resetting_request") }}">{{ 'reset.password'|trans }}</a>
+                    <a href="{{ path("fos_user_resetting_request") }}">{{ 'reset.password'|trans({}, 'messages') }}</a>
                 </div>
             </div>
 
 
             <div class="line">
                 <div class="champForm">
-                    {{ 'no_account'|trans }}
-                    <a href="{{ path("fos_user_registration_register") }}">{{ 'register'|trans }}</a>
+                    {{ 'no_account'|trans({}, 'messages') }}
+                    <a href="{{ path("fos_user_registration_register") }}">{{ 'register'|trans({}, 'messages') }}</a>
                 </div>
             </div>
 
