@@ -163,6 +163,7 @@ h1 {
     float: left;
     padding: 4%;
     margin: auto;
+    text-align: center;
 }
 
 #presentation p {
@@ -243,7 +244,7 @@ label {
 .champ {
     width: 100%;
 }
-input[type='text'], input[type='email'] {
+input[type='text'], input[type='email'], input[type='number'], select, input[type='password'] {
     float: left;
     margin: 10px;
     width: 200px;
@@ -252,6 +253,12 @@ input[type='text'], input[type='email'] {
     color: #ffffff;
     font-size: 14px;
     border: none;
+}
+
+input[type='checkbox'] {
+    float: left;
+    width: 20px;
+    height: 30px;
 }
 
 textarea {
@@ -330,7 +337,7 @@ button[type='submit'], input[type='submit'] {
     float: left;
     display: block;
     width: 15%;
-    height: 200px;
+    height: auto;
     margin-right: 5%;
 }
 

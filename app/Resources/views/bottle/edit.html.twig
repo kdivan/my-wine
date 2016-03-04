@@ -55,13 +55,19 @@
                 {{ form_widget(edit_form.bottleType) }}
             </div>
             <div class="champForm">
-                {{ form_label(edit_form.image_file) }}
-                {{ form_widget(edit_form.image_file) }}
+                {{ form_label(edit_form.unit) }}
+                {{ form_widget(edit_form.unit) }}
             </div>
         </div>
 
         <div class="line">
-            <input type="submit" value="{{ 'edit'|trans }}" />
+            <div class="champForm">
+                {{ form_label(edit_form.image_file) }}
+                {{ form_widget(edit_form.image_file) }}
+            </div>
+            <div class="champForm">
+                <input type="submit" value="Edit" />
+            </div>
         </div>
 
     {{ form_end(edit_form) }}

@@ -1,0 +1,46 @@
+{% extends "UserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <div class="content">
+        <h1>{{ 'Create an'|trans }}  <span class="red">{{ 'account'|trans }}</span></h1>
+
+        {{ form_start(form) }}
+
+        <div class="line">
+            <div class="champForm">
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username) }}
+            </div>
+            <div class="champForm">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+        </div>
+        <div class="line">
+            <div class="champForm">
+                {{ form_label(form.plainPassword.first) }}
+                {{ form_widget(form.plainPassword.first) }}
+            </div>
+            <div class="champForm">
+                {{ form_label(form.plainPassword.second) }}
+                {{ form_widget(form.plainPassword.second) }}
+            </div>
+        </div>
+
+        <div class="line">
+            <div class="champForm">
+                <div class="cta">
+                    <button type="submit">Register!</button>
+                </div>
+            </div>
+        </div>
+
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock fos_user_content %}
