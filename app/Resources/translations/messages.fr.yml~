@@ -1,35 +1,70 @@
 actions: Actions
 address: Adresse
+add: Ajouter
 back_to_list: 'Retour à la liste'
 begin: Début
 begin_period: 'Période début'
 cancel: Annuler
 create: Créer
-creation_date: 'Date de création'
+create.new.entry: + Créer une nouvelle cave
+creation_date: Date de création
 customer: Client
+currency: devise
+Currency: Devise
 date: Date
 day: Jour
+delete: supprimer
+Description: Description
+description: Description
 descriptive: Descriptif
+edit: Modifier
 email: Email
 end: Fin
-number: N°
-phone: Téléphone
-postal_code: 'Code postal'
-show: Afficher
-sign: Enseigne
 from: Expéditeur
-message: Message
-description: Description
+id: Identifiant
+Image file: Fichier image
+label: Libellé
+list.bottle: Liste des bouteilles
+logout: __logout
+Max bottles: Qte max bouteille
 menu.dev: Dev
 menu.rigths: Droits
 menu.rigths_group.users: Utilisateurs
 menu.rigths_group.groups: Groupes
 menu.rigths_group.roles: Rôles
-contact.sender: 'De:'
-contact.message: 'Votre message:'
-contact.subject: 'Sujet:'
-contact.submit: 'Envoyer mon message'
+message: Message
+my: Mes
+name: Nom
+Name: Nom
+no_account: Pas de compte ?
+number: N°
+phone: Téléphone
+postal_code: Code postal
+profile: __profile
+register: Je m'inscris
+reset.password: Mot de passe oublié
+show: Afficher
+sign: Enseigne
 validation.contact.sender: Vide
-validation.contact.subject: 'Sujet vide'
-validation.contact.message: 'message vide'
-reset_password: Mot de passe oublié
+validation.contact.subject: Sujet vide
+validation.contact.message: message vide
+vineyard: Vignoble
+Vineyard: Vignoble
+vintage: milésime
+Vintage: Milésime
+winemaking: Vignification
+Winemaking: Vignification
+cellar.not_enough_space: Il n'y pas assez d'espace dans la cave !
+cellar.available_space: place(s) disponible dans la cave
+bottle_type: Type de bouteille
+bottle_type.management: Gestion des types de bouteille
+bottle_type.create_entry: Créer un nouveau type de bouteille
+bottle_type.list: Liste des types de bouteille
+bottle_type.creation: Création d'un type de bouteille
+Create an: Créer un
+account: compte
+cellars: Caves à vin
+cellar.new_entry: Créer une cave à vin
+cellar.edit_entry: Modifier ma cave à vin
+cellar.back_to_cellar: Retour à mes caves
+update: Mettre à jour
