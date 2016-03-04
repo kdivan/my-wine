@@ -14,13 +14,11 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @Template(":default:index.html.twig")
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir') . '/..'),
-        ]);
+        return array();
     }
 
     /**
@@ -71,16 +69,17 @@ class DefaultController extends Controller
      *          "day": "\d+"
      *     }
      *  , name="post")
+     * @Template(":default:post.html.twig")
      */
     public function postAction(Request $request, $year, $month, $day, $title)
     {
         // replace this example code with whatever you need
-        return $this->render('default/post.html.twig', [
+        return [
             'year'  => $year,
             'month' => $month,
             'day'   => $day,
             'title' => $title,
-        ]);
+        ];
     }
 
     /**

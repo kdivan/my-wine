@@ -32,9 +32,9 @@ class CellarController extends Controller
             ['user' => $this->getUser(), ]
         );
 
-        return $this->render('cellar/index.html.twig', array(
+        return array(
             'cellars' => $cellars,
-        ));
+        );
     }
 
     /**
@@ -59,10 +59,10 @@ class CellarController extends Controller
             return $this->redirectToRoute('cellar_show', array('id' => $cellar->getId()));
         }
 
-        return $this->render('cellar/new.html.twig', array(
+        return array(
             'cellar' => $cellar,
             'form' => $form->createView(),
-        ));
+        );
     }
 
     /**
@@ -80,11 +80,11 @@ class CellarController extends Controller
             ['cellar' => $cellar],
             ['id' => 'ASC']
         );
-        return $this->render('cellar/show.html.twig', array(
+        return array(
             'cellar' => $cellar,
             'bottles' => $bottles,
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
@@ -112,11 +112,11 @@ class CellarController extends Controller
             return $this->redirectToRoute('cellar_index');
         }
 
-        return $this->render('cellar/edit.html.twig', array(
+        return array(
             'cellar' => $cellar,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
