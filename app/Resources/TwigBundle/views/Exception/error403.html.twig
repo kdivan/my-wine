@@ -1,19 +1,22 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h1>Accès <span class="red">interdit</span></h1>
 
-    <p>Vous n'avez pas les accès requis pour être ici.</p>
+    <div class="content">
+        <h1>Accès <span class="red">interdit</span></h1>
 
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <p>
-            <a href="{{ path('cellar_index') }}">Retour à mes caves</a>.
-        </p>
-    {% else %}
-        <p>
-            <a href="{{ path('homepage') }}">Retour à l'accueil</a>.
-        </p>
-    {% endif %}
+        <p>Vous n'avez pas les accès requis pour être ici.</p>
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <p>
+                <a href="{{ path('cellar_index') }}">Retour à mes caves</a>.
+            </p>
+        {% else %}
+            <p>
+                <a href="{{ path('homepage') }}">Retour à l'accueil</a>.
+            </p>
+        {% endif %}
+    </div>
 
 {% endblock %}
 
