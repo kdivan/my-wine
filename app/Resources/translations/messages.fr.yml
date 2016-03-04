@@ -26,7 +26,7 @@ Image file: Fichier image
 label: Libellé
 list.bottle: Liste des bouteilles
 logout: __logout
-Max bottles: Quantité maximum de bouteilles
+Max bottles: Qte max bouteille
 menu.dev: Dev
 menu.rigths: Droits
 menu.rigths_group.users: Utilisateurs
@@ -54,6 +54,8 @@ vintage: milésime
 Vintage: Milésime
 winemaking: Vignification
 Winemaking: Vignification
+Create an: Créer un
+account: compte
 
 
 
