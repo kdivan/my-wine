@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Cellar
+ * Cellar.
  *
  * @ORM\Table(name="cellar")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CellarRepository")
@@ -86,7 +86,7 @@ class Cellar
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -96,7 +96,7 @@ class Cellar
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -110,7 +110,7 @@ class Cellar
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */

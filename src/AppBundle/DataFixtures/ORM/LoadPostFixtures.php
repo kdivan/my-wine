@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Category;
@@ -12,26 +13,26 @@ class LoadPostFixtures implements FixtureInterface
     {
         $i = 0;
         $category = new Category();
-        $category->setName("Test");
+        $category->setName('Test');
         $manager->persist($category);
         $manager->flush();
 
         while ($i <= 5) {
             $post = new Post();
-            $post->setTitle("Test ".$i);
-            $post->setBody("TESTESTST");
+            $post->setTitle('Test '.$i);
+            $post->setBody('TESTESTST');
             $post->setIsPublished(true);
             $post->setCategory($category);
             $manager->persist($post);
 
             $post = new Post();
-            $post->setTitle("Testddddd ".$i);
-            $post->setBody("TESTESTST");
+            $post->setTitle('Testddddd '.$i);
+            $post->setBody('TESTESTST');
             $post->setIsPublished(false);
             $post->setCategory($category);
             $manager->persist($post);
 
-            $i++;
+            ++$i;
         }
         $manager->flush();
     }

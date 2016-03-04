@@ -28,9 +28,9 @@ class DefaultController extends Controller
     public function blogAction(Request $request)
     {
         $url = $this->generateUrl('post', [
-            'year'  => '2015',
+            'year' => '2015',
             'month' => '03',
-            'day'   => '21',
+            'day' => '21',
             'title' => 'test',
         ]);
 
@@ -53,7 +53,7 @@ class DefaultController extends Controller
         $em->flush();*/
 
         return [
-            'url'   => $url,
+            'url' => $url,
             'posts' => $this->getDoctrine()->getRepository('AppBundle:Post')->findAllOrderByCreatedAt(),
         ];
     }
@@ -75,9 +75,9 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return [
-            'year'  => $year,
+            'year' => $year,
             'month' => $month,
-            'day'   => $day,
+            'day' => $day,
             'title' => $title,
         ];
     }
@@ -90,12 +90,12 @@ class DefaultController extends Controller
     {
         $error = null;
         $contact = new Contact();
-        $form    = $this->createForm(ContactType::class, $contact);
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         dump($form);
         dump($this->get('app.mailer'));
         if ($form->isSubmitted() && $form->isValid()) {
-            dump("isvalid");
+            dump('isvalid');
             $this->get('app.mailer')->sendContactMessage($contact);
             //return $this->redirect('/contact');
         } else {
@@ -104,6 +104,7 @@ class DefaultController extends Controller
         dump($error);
         dump($form->getErrors());
         dump($form->isValid());
+
         return array('form' => $form->createView());
     }
 

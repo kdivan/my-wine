@@ -4,7 +4,6 @@ namespace AppBundle\Services;
 
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Cellar;
-use AppBundle\Entity\Bottle;
 
 class CellarManager
 {
@@ -20,13 +19,13 @@ class CellarManager
 
     public function hasEnoughStorage(Cellar $cellar, $bottleToStore)
     {
-        return (count($this->bottleRepository->findBy(['cellar' => $cellar]))
-            + $bottleToStore <= $cellar->getMaxBottles());
+        return count($this->bottleRepository->findBy(['cellar' => $cellar]))
+            + $bottleToStore <= $cellar->getMaxBottles();
     }
 
     public function getAvailableSpace(Cellar $cellar)
     {
-        return ($cellar->getMaxBottles() -
-            count($this->bottleRepository->findBy(['cellar' => $cellar])));
+        return $cellar->getMaxBottles() -
+            count($this->bottleRepository->findBy(['cellar' => $cellar]));
     }
 }

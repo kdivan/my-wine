@@ -1,13 +1,12 @@
 <?php
+
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Bottle;
 use AppBundle\Entity\BottleType;
-use AppBundle\Entity\Category;
 use AppBundle\Entity\Cellar;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Post;
 use UserBundle\Entity\User;
 
 class LoadCellarBottleFixtures implements FixtureInterface
@@ -124,7 +123,7 @@ class LoadCellarBottleFixtures implements FixtureInterface
                 $bottle2->setImageName('test2.jpg');
                 $manager->persist($bottle2);
             }
-            $i++;
+            ++$i;
         }
         $manager->flush();
     }

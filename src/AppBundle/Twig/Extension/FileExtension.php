@@ -7,7 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Twig;
 class FileExtension extends \Twig_Extension
 {
     /**
-     * Return the functions registered as twig extensions
+     * Return the functions registered as twig extensions.
      *
      * @return array
      */

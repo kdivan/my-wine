@@ -144,7 +144,7 @@ class Bottle
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -154,7 +154,7 @@ class Bottle
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -168,7 +168,7 @@ class Bottle
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -178,7 +178,7 @@ class Bottle
     }
 
     /**
-     * Set vineyard
+     * Set vineyard.
      *
      * @param string $vineyard
      *
@@ -192,7 +192,7 @@ class Bottle
     }
 
     /**
-     * Get vineyard
+     * Get vineyard.
      *
      * @return string
      */
@@ -202,7 +202,7 @@ class Bottle
     }
 
     /**
-     * Set winemaking
+     * Set winemaking.
      *
      * @param string $winemaking
      *
@@ -216,7 +216,7 @@ class Bottle
     }
 
     /**
-     * Get winemaking
+     * Get winemaking.
      *
      * @return string
      */
@@ -226,7 +226,7 @@ class Bottle
     }
 
     /**
-     * Set buyingPrice
+     * Set buyingPrice.
      *
      * @param string $buyingPrice
      *
@@ -240,7 +240,7 @@ class Bottle
     }
 
     /**
-     * Get buyingPrice
+     * Get buyingPrice.
      *
      * @return string
      */

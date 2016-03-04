@@ -13,7 +13,7 @@ class ContactType extends AbstractType
         $builder
             ->add('sender')
             ->add('subject')
-            ->add('message',TextareaType::class)
+            ->add('message', TextareaType::class)
         ;
     }
 

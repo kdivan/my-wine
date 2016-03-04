@@ -29,7 +29,6 @@ class BottleType
      */
     private $label;
 
-
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Bottle", mappedBy="bottleType")
      */

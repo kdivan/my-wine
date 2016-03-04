@@ -7,7 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Post
+ * Post.
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
@@ -54,14 +54,14 @@ class Post
     protected $category;
 
     /**
-     * @var string $slug
+     * @var string
      * @Gedmo\Slug(fields={"title"}, updatable=false, separator="-")
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -71,7 +71,7 @@ class Post
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -85,7 +85,7 @@ class Post
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class Post
     }
 
     /**
-     * Set body
+     * Set body.
      *
      * @param string $body
      *
@@ -109,7 +109,7 @@ class Post
     }
 
     /**
-     * Get body
+     * Get body.
      *
      * @return string
      */
@@ -119,9 +119,9 @@ class Post
     }
 
     /**
-     * Set isPublished
+     * Set isPublished.
      *
-     * @param boolean $isPublished
+     * @param bool $isPublished
      *
      * @return Post
      */
@@ -133,7 +133,7 @@ class Post
     }
 
     /**
-     * Get isPublished
+     * Get isPublished.
      *
      * @return bool
      */
@@ -176,6 +176,6 @@ class Post
 
     public function isPostValid()
     {
-        return ($this->body != $this->title);
+        return $this->body != $this->title;
     }
 }

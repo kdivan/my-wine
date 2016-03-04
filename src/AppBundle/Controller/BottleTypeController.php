@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\BottleType;
-use AppBundle\Form\BottleTypeType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**

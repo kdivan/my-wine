@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Cellar;
-use AppBundle\Form\CellarType;
 
 /**
  * Cellar controller.
@@ -29,7 +28,7 @@ class CellarController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $cellars = $em->getRepository('AppBundle:Cellar')->findBy(
-            ['user' => $this->getUser(), ]
+            ['user' => $this->getUser()]
         );
 
         return array(
@@ -80,6 +79,7 @@ class CellarController extends Controller
             ['cellar' => $cellar],
             ['id' => 'ASC']
         );
+
         return array(
             'cellar' => $cellar,
             'bottles' => $bottles,

@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Bottle;
-use AppBundle\Form\BottleType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 /**
@@ -34,6 +33,7 @@ class BottleController extends Controller
             ['cellar' => $cellar],
             ['id' => 'ASC']
         );
+
         return array(
             'bottles' => $bottles,
             'cellar' => $cellar,
@@ -64,7 +64,7 @@ class BottleController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $unit = $form->get('unit')->getData();
             if ($this->get('appbundle.cellar_manager')->hasEnoughStorage($cellar, $unit)) {
-                for ($i = 0; $i < $unit; $i++) {
+                for ($i = 0; $i < $unit; ++$i) {
                     $bottle = clone $bottle;
                     $em->persist($bottle);
                     $em->flush();
@@ -160,7 +160,7 @@ class BottleController extends Controller
         }
 
         return $this->redirectToRoute('cellar_show', [
-            'id' => $cellar->getId()]);
+            'id' => $cellar->getId(), ]);
     }
 
     /**
