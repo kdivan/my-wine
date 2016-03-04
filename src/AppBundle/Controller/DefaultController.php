@@ -88,15 +88,22 @@ class DefaultController extends Controller
      */
     public function contactAction(Request $request)
     {
+        $error = null;
         $contact = new Contact();
         $form    = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
-        if ($form->isValid()) {
-            $this->get('app.mailer')->sendContactMessage($form->getData());
-
-            return $this->redirect('/contact');
+        dump($form);
+        dump($this->get('app.mailer'));
+        if ($form->isSubmitted() && $form->isValid()) {
+            dump("isvalid");
+            $this->get('app.mailer')->sendContactMessage($contact);
+            //return $this->redirect('/contact');
+        } else {
+            $error = 'contact.not_valid';
         }
-
+        dump($error);
+        dump($form->getErrors());
+        dump($form->isValid());
         return array('form' => $form->createView());
     }
 

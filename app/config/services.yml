@@ -7,8 +7,8 @@ parameters:
 
 services:
     app.mailer:
-        class: AppBundle\Model\Mailer
-        arguments: ["@mailer"]
+        class: AppBundle\Services\Mailer
+        arguments: ['@mailer']
 
     appbundle.repository.cellar:
         class: Doctrine\ORM\EntityRepository
