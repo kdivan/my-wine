@@ -58,12 +58,6 @@ class DefaultController extends Controller
             'url'   => $url,
             'posts' => $this->getDoctrine()->getRepository('AppBundle:Post')->findAllOrderByCreatedAt(),
         ];
-
-        // replace this example code with whatever you need
-        return $this->render('default/blog.html.twig', [
-            'url'   => $url,
-            'posts' => $this->getDoctrine()->getRepository('AppBundle:Post')->findAllOrderByCreatedAt(),
-        ]);
     }
 
     /**
@@ -105,5 +99,14 @@ class DefaultController extends Controller
         }
 
         return array('form' => $form->createView());
+    }
+
+    /**
+     * @Route("/admin", name="admin_panel")
+     * @Template(":default:admin.html.twig")
+     */
+    public function adminAction(Request $request)
+    {
+        return array();
     }
 }

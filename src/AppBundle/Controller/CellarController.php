@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -21,6 +22,7 @@ class CellarController extends Controller
      *
      * @Route("/", name="cellar_index")
      * @Method("GET")
+     * @Template(":cellar:index.html.twig")
      */
     public function indexAction()
     {
@@ -40,6 +42,7 @@ class CellarController extends Controller
      *
      * @Route("/new", name="cellar_new")
      * @Method({"GET", "POST"})
+     * @Template(":cellar:new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -67,6 +70,7 @@ class CellarController extends Controller
      *
      * @Route("/{id}", name="cellar_show")
      * @Method("GET")
+     * @Template(":cellar:show.html.twig")
      */
     public function showAction(Cellar $cellar)
     {
@@ -88,6 +92,7 @@ class CellarController extends Controller
      *
      * @Route("/{id}/edit", name="cellar_edit")
      * @Method({"GET", "POST"})
+     * @Template(":cellar:edit.html.twig")
      */
     public function editAction(Request $request, Cellar $cellar)
     {

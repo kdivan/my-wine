@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Cellar;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Bottle;
 use AppBundle\Form\BottleType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 /**
  * Bottle controller.
@@ -23,6 +25,7 @@ class BottleController extends Controller
      *
      * @Route("/", name="bottle_index")
      * @Method("GET")
+     * @Template(":bottle:index.html.twig")
      */
     public function indexAction(Cellar $cellar)
     {
@@ -31,10 +34,10 @@ class BottleController extends Controller
             ['cellar' => $cellar],
             ['id' => 'ASC']
         );
-        return $this->render('bottle/index.html.twig', array(
+        return array(
             'bottles' => $bottles,
             'cellar' => $cellar,
-        ));
+        );
     }
 
     /**
@@ -42,6 +45,7 @@ class BottleController extends Controller
      *
      * @Route("/new", name="bottle_new")
      * @Method({"GET", "POST"})
+     * @Template(":bottle:new.html.twig")
      */
     public function newAction(Request $request, Cellar $cellar)
     {
@@ -50,31 +54,39 @@ class BottleController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cellar = $em->getRepository('AppBundle:Cellar')->find($cellar);
         $bottle->setCellar($cellar);
-        $form = $this->createForm('AppBundle\Form\BottleType', $bottle);
+        $form = $this->createForm('AppBundle\Form\BottleType', $bottle)
+            ->add('unit', IntegerType::class, array(
+                'mapped' => false,
+                'required' => true,
+            ));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $unit = $form->get('unit')->getData();
-            dump($unit);
-            if ($this->get('appbundle.cellar_manager')
-                    ->hasEnoughStorage($cellar, $unit)) {
-                dump('hasenoughstorage');
-                for($i = 0; $i < $unit; $i++) {
+            if ($this->get('appbundle.cellar_manager')->hasEnoughStorage($cellar, $unit)) {
+                for ($i = 0; $i < $unit; $i++) {
+                    $bottle = clone $bottle;
                     $em->persist($bottle);
                     $em->flush();
                 }
+                if ($unit > 1) {
+                    return $this->redirectToRoute('cellar_show', array('id' => $cellar->getId()));
+                } else {
+                    return $this->redirectToRoute('bottle_show', array('cellar' => $cellar->getId(), 'id' => $bottle->getId()));
+                }
             } else {
+                $availableSpace = $this->get('appbundle.cellar_manager')->getAvailableSpace($cellar);
                 $error = 'cellar.not_enough_space';
             }
-            return $this->redirectToRoute('bottle_show', array('cellar' => $cellar->getId(), 'id' => $bottle->getId()));
         }
 
-        return $this->render('bottle/new.html.twig', array(
+        return array(
             'bottle' => $bottle,
             'form' => $form->createView(),
             'cellar' => $cellar,
             'error' => $error,
-        ));
+            'availableSpace' => isset($availableSpace) ? $availableSpace : null,
+        );
     }
 
     /**
@@ -82,16 +94,17 @@ class BottleController extends Controller
      *
      * @Route("/{id}", name="bottle_show")
      * @Method("GET")
+     * @Template(":bottle:show.html.twig")
      */
     public function showAction(Bottle $bottle, Cellar $cellar)
     {
         $deleteForm = $this->createDeleteForm($bottle, $cellar);
 
-        return $this->render('bottle/show.html.twig', array(
+        return array(
             'bottle' => $bottle,
             'delete_form' => $deleteForm->createView(),
             'cellar' => $cellar,
-        ));
+        );
     }
 
     /**
@@ -99,11 +112,12 @@ class BottleController extends Controller
      *
      * @Route("/{id}/edit", name="bottle_edit")
      * @Method({"GET", "POST"})
+     * @Template(":bottle:edit.html.twig")
      */
     public function editAction(Request $request, Bottle $bottle, Cellar $cellar)
     {
         $deleteForm = $this->createDeleteForm($bottle, $cellar);
-        if (strlen($bottle->getImageName()) > 0 ){
+        if (strlen($bottle->getImageName()) > 0) {
             $bottleImagePath = $this->getParameter('bottle_image_path').$bottle->getImageName();
             if (file_exists($bottleImagePath)) {
                 $bottle->setImageFile(new File($bottleImagePath));
@@ -120,12 +134,12 @@ class BottleController extends Controller
             return $this->redirectToRoute('bottle_show', array('cellar' => $cellar->getId(),  'id' => $bottle->getId()));
         }
 
-        return $this->render('bottle/edit.html.twig', array(
+        return array(
             'bottle' => $bottle,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'cellar' => $cellar,
-        ));
+        );
     }
 
     /**

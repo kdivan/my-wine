@@ -21,7 +21,12 @@ class CellarManager
     public function hasEnoughStorage(Cellar $cellar, $bottleToStore)
     {
         return (count($this->bottleRepository->findBy(['cellar' => $cellar]))
-            + $bottleToStore < $cellar->getMaxBottles() );
+            + $bottleToStore <= $cellar->getMaxBottles());
     }
 
+    public function getAvailableSpace(Cellar $cellar)
+    {
+        return ($cellar->getMaxBottles() -
+            count($this->bottleRepository->findBy(['cellar' => $cellar])));
+    }
 }

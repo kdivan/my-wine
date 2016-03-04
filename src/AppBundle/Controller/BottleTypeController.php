@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\BottleType;
 use AppBundle\Form\BottleTypeType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * BottleType controller.
@@ -21,6 +22,7 @@ class BottleTypeController extends Controller
      *
      * @Route("/", name="bottletype_index")
      * @Method("GET")
+     * @Template(":bottletype:index.html.twig")
      */
     public function indexAction()
     {
@@ -28,9 +30,9 @@ class BottleTypeController extends Controller
 
         $bottleTypes = $em->getRepository('AppBundle:BottleType')->findAll();
 
-        return $this->render('bottletype/index.html.twig', array(
+        return array(
             'bottleTypes' => $bottleTypes,
-        ));
+        );
     }
 
     /**
@@ -38,6 +40,7 @@ class BottleTypeController extends Controller
      *
      * @Route("/new", name="bottletype_new")
      * @Method({"GET", "POST"})
+     * @Template(":bottletype:new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -53,10 +56,10 @@ class BottleTypeController extends Controller
             return $this->redirectToRoute('bottletype_show', array('id' => $bottleType->getId()));
         }
 
-        return $this->render('bottletype/new.html.twig', array(
+        return array(
             'bottleType' => $bottleType,
             'form' => $form->createView(),
-        ));
+        );
     }
 
     /**
@@ -64,15 +67,16 @@ class BottleTypeController extends Controller
      *
      * @Route("/{id}", name="bottletype_show")
      * @Method("GET")
+     * @Template(":bottletype:show.html.twig")
      */
     public function showAction(BottleType $bottleType)
     {
         $deleteForm = $this->createDeleteForm($bottleType);
 
-        return $this->render('bottletype/show.html.twig', array(
+        return array(
             'bottleType' => $bottleType,
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
@@ -80,6 +84,7 @@ class BottleTypeController extends Controller
      *
      * @Route("/{id}/edit", name="bottletype_edit")
      * @Method({"GET", "POST"})
+     * @Template(":bottletype:edit.html.twig")
      */
     public function editAction(Request $request, BottleType $bottleType)
     {
@@ -95,11 +100,11 @@ class BottleTypeController extends Controller
             return $this->redirectToRoute('bottletype_edit', array('id' => $bottleType->getId()));
         }
 
-        return $this->render('bottletype/edit.html.twig', array(
+        return array(
             'bottleType' => $bottleType,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**

@@ -14,30 +14,28 @@
 <div class="content">
 
     <div class="bottleList">
+        {%  set j = 0 %}
         {% for bottle in bottles %}
+            {% if j%10 == 0 and j != 0%}
+                </div><div class="bottleList">
+            {% endif %}
             <a href="{{ path('bottle_show', {'cellar':cellar.id,'id': bottle.id }) }}" class="myBottle">
-                {% if bottle.bottleType.id == 1 %}
-                    <img src="{{ asset('img/vin-rouge.png') }}" />
-                {% else %}
-                    <img src="{{ asset('img/vin-blanc.png') }}" />
-                {% endif %}
+                <img src="{{ asset('img/vin-rouge.png') }}" />
                 <div class="infoBottle">
                    <p><span class="red">{{ bottle.name }}</span> - {{ bottle.vintage }}</p>
                 </div>
             </a>
+            {% set j = j + 1 %}
         {% endfor %}
-
-        {% for i in bottles|length..cellar.maxBottles -1 %}
-        {% if i%10 == 0 and i != 0%}
-
-    </div>
-    <div class="bottleList">
-
+        {% if bottles|length < cellar.maxBottles %}
+            {% for i in bottles|length..cellar.maxBottles-1 %}
+                {% if i%10 == 0 and i != 0%}
+                    </div>
+                    <div class="bottleList">
+                {% endif %}
+                <img src="{{ asset('img/emplacement_vide.png') }}" />
+            {% endfor %}
         {% endif %}
-
-        <img src="{{ asset('img/emplacement_vide.png') }}" />
-
-        {% endfor %}
     </div>
 
     <div class="line">

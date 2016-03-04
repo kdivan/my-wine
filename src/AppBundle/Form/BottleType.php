@@ -5,7 +5,6 @@ namespace AppBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,10 +28,6 @@ class BottleType extends AbstractType
             ->add('currency')
             ->add('image_file', FileType::class, array(
                 'required' => false,
-            ))
-            ->add('unit', IntegerType::class, array(
-                'mapped' => false,
-                'required' => true,
             ))
             ->add('bottleType', EntityType::class, array(
                 'class' => 'AppBundle\Entity\BottleType',

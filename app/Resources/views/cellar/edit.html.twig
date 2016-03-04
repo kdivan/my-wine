@@ -33,19 +33,19 @@
             <div class="ctaForm">
                 <input type="submit" value="Edit" />
             </div>
-            <div class="ctaForm">
-                <div class="deleteForm">
-                    {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
-                    {{ form_end(delete_form) }}
-                </div>
-            </div>
-
         </div>
 
 
         {{ form_end(edit_form) }}
 
+    </div>
+
+    <div class="ctaForm">
+        <div class="deleteForm">
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </div>
     </div>
 
     <div class="line">

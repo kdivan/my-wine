@@ -54,7 +54,10 @@ vintage: milésime
 Vintage: Milésime
 winemaking: Vignification
 Winemaking: Vignification
-
-
-
-
+cellar.not_enough_space: Il n'y pas assez d'espace dans la cave !
+cellar.available_space: place(s) disponible dans la cave
+bottle_type: Type de bouteille
+bottle_type.management: Gestion des types de bouteille
+bottle_type.create_entry: Créer un nouveau type de bouteille
+bottle_type.list: Liste des types de bouteille
+bottle_type.creation: Création d'un type de bouteille

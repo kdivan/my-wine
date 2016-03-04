@@ -1,14 +1,17 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
+{% import 'AppBundle::macros.html.twig' as macro %}
+
 {% block body %}
 <div class="content">
     <h1>{{ 'bottle'|trans }}: <span class="red">{{ 'add'|trans }}</span></h1>
 
     {% if error is defined and error is not null %}
-        <div class="wrapper wrapper-content animated fadeInRight">
+        <div>
             <div class="row">
                 <div class="col-lg-12">
                     {{ macro.alert('error', error) }}
+                    {{ availableSpace }} {{ 'cellar.available_space'|trans }}
                 </div>
             </div>
         </div>
@@ -64,6 +67,13 @@
         <div class="champForm">
             {{ form_label(form.image_file) }}
             {{ form_widget(form.image_file) }}
+        </div>
+    </div>
+
+    <div class="line">
+        <div class="champForm">
+            {{ form_label(form.unit) }}
+            {{ form_widget(form.unit) }}
         </div>
     </div>
 

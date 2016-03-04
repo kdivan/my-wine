@@ -32,10 +32,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('bottle_show', {'cellarId':cellarId, 'id': bottle.id }) }}">{{ 'show'|trans }}</a>
+                            <a href="{{ path('bottle_show', {'cellar':cellar.id, 'id': bottle.id }) }}">{{ 'show'|trans }}</a>
                         </li>
                         <li>
-                            <a href="{{ path('bottle_edit', {'cellarId':cellarId, 'id': bottle.id }) }}">{{ 'edit'|trans }}</a>
+                            <a href="{{ path('bottle_edit', {'cellar':cellar.id, 'id': bottle.id }) }}">{{ 'edit'|trans }}</a>
                         </li>
                     </ul>
                 </td>
@@ -46,7 +46,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('bottle_new', {'cellarId':cellarId}) }}">{{ 'create.new.entry'|trans }}</a>
+            <a href="{{ path('bottle_new', {'cellar':cellar.id}) }}">{{ 'create.new.entry'|trans }}</a>
         </li>
     </ul>
 </div>
