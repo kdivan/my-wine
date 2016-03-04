@@ -1,6 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
+<div class="content">
     <h1>Accès <span class="red">interdit</span></h1>
 
     <p>Vous n'avez pas les accès requis pour être ici.</p>
@@ -14,6 +15,6 @@
             <a href="{{ path('homepage') }}">Retour à l'accueil</a>.
         </p>
     {% endif %}
-
+</div>
 {% endblock %}
 

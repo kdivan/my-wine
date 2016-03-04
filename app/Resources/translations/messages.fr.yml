@@ -107,3 +107,4 @@ bottle.add_entry: Ajouter une bouteille
 unit: Quantité
 bottle.edit: Modifier la bouteille
 bottle.back_to_bottle: Retour à la bouteille
+contact.send_ok: Votre message a bien été envoyé

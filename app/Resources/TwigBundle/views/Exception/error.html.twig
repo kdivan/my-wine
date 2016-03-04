@@ -1,19 +1,20 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <h1>Oops<span class="red">!</span></h1>
+    <div class="content">
+        <h1>Oops<span class="red">!</span></h1>
 
-    <p>Magikarp attaque mais... rien ne se passe.</p>
+        <p>Magikarp attaque mais... rien ne se passe.</p>
 
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <p>
-            <a href="{{ path('cellar_index') }}">Retour à mes caves</a>.
-        </p>
-    {% else %}
-        <p>
-            <a href="{{ path('homepage') }}">Retour à l'accueil</a>.
-        </p>
-    {% endif %}
-
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <p>
+                <a href="{{ path('cellar_index') }}">Retour à mes caves</a>.
+            </p>
+        {% else %}
+            <p>
+                <a href="{{ path('homepage') }}">Retour à l'accueil</a>.
+            </p>
+        {% endif %}
+    </div>
 {% endblock %}
 
