@@ -35,18 +35,19 @@
                     <input type="submit" value="{{ 'update'|trans }}" />
                 </div>
             </div>
-            <div class="champForm">
-                <div class="ctaForm">
-                    <div class="deleteForm">
-                        {{ form_start(delete_form) }}
-                        <input type="submit" value="{{ 'delete'|trans }}">
-                        {{ form_end(delete_form) }}
-                    </div>
-                </div>
-            </div>
         </div>
 
         {{ form_end(edit_form) }}
+        
+        <div class="champForm">
+            <div class="ctaForm">
+                <div class="deleteForm">
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="{{ 'delete'|trans }}">
+                    {{ form_end(delete_form) }}
+                </div>
+            </div>
+        </div>
 
     </div>
 
