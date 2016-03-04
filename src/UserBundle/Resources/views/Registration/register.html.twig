@@ -5,7 +5,7 @@
 {% block fos_user_content %}
 
     <div class="content">
-        <h1>{{ 'Create an'|trans }}  <span class="red">{{ 'account'|trans }}</span></h1>
+        <h1>{{ 'Créer un'|trans }}  <span class="red">{{ 'compte'|trans }}</span></h1>
 
         {{ form_start(form) }}
 
@@ -33,7 +33,7 @@
         <div class="line">
             <div class="champForm">
                 <div class="cta">
-                    <button type="submit">Register!</button>
+                    <button type="submit">{{ 'register'|trans({}, messages) }}</button>
                 </div>
             </div>
         </div>

@@ -70,6 +70,7 @@ postal_code: Code postal
 profile: __profile
 register: Je m'inscris
 reset.password: Mot de passe oublié
+security.login.remember_me: Se souvenir de moi
 show: Afficher
 sign: Enseigne
 Unit: Quantité
