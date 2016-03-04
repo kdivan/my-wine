@@ -6,7 +6,7 @@
 
         {% if bottle.imageName is not null and file_exists(web_path~asset('images/bottles/' ~ bottle.imageName)) %}
         <div id="visuBouteille">
-            <img width="auto" height="200" src="{{ asset('images/bottles/' ~ bottle.imageName) }}" />
+            <img width="100%" height="auto" src="{{ asset('images/bottles/' ~ bottle.imageName) }}" />
         </div>
         {% endif %}
 
