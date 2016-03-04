@@ -3,7 +3,7 @@
 {% block body %}
 <div class="content">
 
-    <h1>Cellar edit : <span class="red">{{ cellar.name }}</span></h1>
+    <h1>{{ 'cellar.edit'|trans }} <span class="red">{{ cellar.name }}</span></h1>
 
     <div class="line">
         {{ form_start(edit_form) }}
@@ -31,12 +31,12 @@
 
         <div class="line">
             <div class="ctaForm">
-                <input type="submit" value="Edit" />
+                <input type="submit" value="{{ 'edit'|trans }}" />
             </div>
             <div class="ctaForm">
                 <div class="deleteForm">
                     {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="{{ 'delete'|trans }}">
                     {{ form_end(delete_form) }}
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
     <div class="line">
         <p class="back">
-            <a href="{{ path('cellar_index') }}">Back to the list</a>
+            <a href="{{ path('cellar_index') }}">{{ 'cellar.back_to_cellars'|trans }}</a>
         </p>
     </div>
 

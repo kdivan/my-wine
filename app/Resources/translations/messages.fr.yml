@@ -4,7 +4,19 @@ add: Ajouter
 back_to_list: 'Retour à la liste'
 begin: Début
 begin_period: 'Période début'
+bottle: Bouteille
+bottle.add: Ajouter une bouteille
+bottle.back_to_cellar: Retour à la cave
+Bottle type: Type de bouteille
+Buying price: Prix d'achat
 cancel: Annuler
+Capacity: Capacité
+create: créer
+cellars: caves
+cellar: Cave
+cellar.back_to_cellars: Retour aux caves
+cellar.edit: Modifier la cave
+cellar.show: voir la cave
 create: Créer
 create.new.entry: + Créer une nouvelle cave
 creation_date: Date de création
@@ -45,6 +57,7 @@ register: Je m'inscris
 reset.password: Mot de passe oublié
 show: Afficher
 sign: Enseigne
+Unit: Nombre
 validation.contact.sender: Vide
 validation.contact.subject: Sujet vide
 validation.contact.message: message vide
