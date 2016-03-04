@@ -61,14 +61,17 @@ bottle_type.management: Gestion des types de bouteille
 bottle_type.create_entry: Créer un nouveau type de bouteille
 bottle_type.list: Liste des types de bouteille
 bottle_type.creation: Création d'un type de bouteille
+bottle.back_to_cellar: Retour à la cave
 Create an: Créer un
 account: compte
 cellars: Caves à vin
 cellar: Cave à vin
-cellar.new_entry: Créer une cave à vin
+cellar.new_entry: Créer une nouvelle
 cellar.edit_entry: Modifier ma cave à vin
 cellar.back_to_cellar: Retour à mes caves
 update: Mettre à jour
 bottle: Bouteille
 bottle.add_entry: Ajouter une bouteille
 unit: Quantité
+bottle.edit: Modifier la bouteille
+bottle.back_to_bottle: Retour à la bouteille

@@ -1,0 +1,24 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="content confirmed">
+        <h1>Nouveau <span class="red">compte</span> </h1>
+        <div class="line">
+            <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+            {% if targetUrl %}
+                <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+            {% endif %}
+        </div>
+        <div class="line">
+            <p>Vous pouvez maintenant créer votre première cave :</p>
+        </div>
+        <div class="line">
+            <div class="cta">
+                <a href="{{ path('cellar_new') }}">Je crée ma cave</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock fos_user_content %}

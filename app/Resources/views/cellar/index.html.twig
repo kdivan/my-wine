@@ -11,6 +11,7 @@
     {% for cellar in cellars %}
         <div class="cellar">
             <div class="blocEntry">
+                <img src="{{ asset('images/cellars/'~cellar.imageName) }}" alt="" class="cellarImg" />
                 <p class="entry">
                     <span class="title">
                         <a href="{{ path('cellar_show', { 'id': cellar.id }) }}">

@@ -30,8 +30,19 @@
         </div>
 
         <div class="line">
-            <div class="ctaForm">
-                <input type="submit" value="{{ 'update'|trans }}" />
+            <div class="champForm">
+                <div class="ctaForm">
+                    <input type="submit" value="{{ 'update'|trans }}" />
+                </div>
+            </div>
+            <div class="champForm">
+                <div class="ctaForm">
+                    <div class="deleteForm">
+                        {{ form_start(delete_form) }}
+                        <input type="submit" value="{{ 'delete'|trans }}">
+                        {{ form_end(delete_form) }}
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -39,13 +50,6 @@
 
     </div>
 
-    <div class="ctaForm">
-        <div class="deleteForm">
-            {{ form_start(delete_form) }}
-            <input type="submit" value="{{ 'delete'|trans }}">
-            {{ form_end(delete_form) }}
-        </div>
-    </div>
 
     <div class="line">
         <p class="back">
